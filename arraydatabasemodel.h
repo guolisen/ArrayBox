@@ -9,9 +9,9 @@
 class ArrayDatabaseModel
 {
 public:
-    ArrayDatabaseModel(QTableView* tableView);
+    ArrayDatabaseModel();
 
-    QSqlError init();
+    QSqlError init(QTableView* tableView);
     QSqlTableModel* getDatabaseModel() const
     {
         return model_.get();

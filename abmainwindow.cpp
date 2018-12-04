@@ -4,11 +4,10 @@
 
 ABMainWindow::ABMainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::ABMainWindow)
-
+    ui(new Ui::ABMainWindow),
+    databaseModel_(std::make_shared<ArrayDatabaseModel>())
 {
     ui->setupUi(this);
-    databaseModel_ = std::make_shared<ArrayDatabaseModel>(ui->tableView);
 }
 
 void ABMainWindow::showError(const QSqlError &err)
@@ -26,11 +25,13 @@ bool ABMainWindow::init()
 {
     ui->splitter->setSizes(QList<int>({INT_MAX, INT_MAX}));
 
-    QSqlError err = databaseModel_->init();
+    QSqlError err = databaseModel_->init(ui->tableView);
     if (err.type() != QSqlError::NoError) {
         showError(err);
         return false;
     }
 
+    ui->tableView->setModel(databaseModel_->getDatabaseModel());
+    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     return true;
 }

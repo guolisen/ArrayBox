@@ -4,7 +4,7 @@
 #include "ui_abmainwindow.h"
 
 static const QString dbPath("C:/Code/qt/ArrayBox/Arrays.db");
-static const QLatin1String createArraysTableSql("CREATE TABLE arraysTest (id integer primary key, \
+static const QLatin1String createArraysTableSql("CREATE TABLE arrays (id integer primary key, \
         name	varchar, \
         mgmtip	varchar, \
         spaip	varchar, \
@@ -23,13 +23,12 @@ static const QLatin1String createArraysTableSql("CREATE TABLE arraysTest (id int
         pools	varchar \
     );");
 
-ArrayDatabaseModel::ArrayDatabaseModel(QTableView* tableView):
-    model_(std::make_shared<QSqlRelationalTableModel>(tableView))
+ArrayDatabaseModel::ArrayDatabaseModel()
 {
 
 }
 
-QSqlError ArrayDatabaseModel::init()
+QSqlError ArrayDatabaseModel::init(QTableView* tableView)
 {
     QSqlError err = initDatabase();
     if (err.type() != QSqlError::NoError) {
@@ -37,6 +36,7 @@ QSqlError ArrayDatabaseModel::init()
     }
 
     // Create the data model:
+    model_ = std::make_shared<QSqlRelationalTableModel>(tableView);
     model_->setEditStrategy(QSqlTableModel::OnManualSubmit);
     model_->setTable("arrays");
 
@@ -52,7 +52,8 @@ QSqlError ArrayDatabaseModel::init()
 
     // Populate the model:
     if (!model_->select()) {
-        return model_->lastError();
+        QSqlError err1 = model_->lastError();
+        return err1;
     }
 
     return QSqlError();
