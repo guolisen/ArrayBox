@@ -33,5 +33,14 @@ bool ABMainWindow::init()
 
     ui->tableView->setModel(databaseModel_->getDatabaseModel());
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    ui->tableView->resizeColumnsToContents();
+    ui->tableView->horizontalHeader();
+    //获取表头列数
+    for(int i = 0; i < ui->tableView->horizontalHeader()->count(); i++)
+    {
+        ui->tableView->setColumnWidth(i, ui->tableView->columnWidth(i) + 10);  //多一些空余控件，不然每列内容很挤
+    }
+
     return true;
 }
