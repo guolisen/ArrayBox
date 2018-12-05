@@ -1,4 +1,5 @@
 #include "abmainwindow.h"
+#include <QtCore/qsortfilterproxymodel.h>
 #include "ui_abmainwindow.h"
 #include "arraydatabasemodel.h"
 
@@ -31,11 +32,18 @@ bool ABMainWindow::init()
         return false;
     }
 
-    ui->tableView->setModel(databaseModel_->getDatabaseModel());
+    proxyModel_ = new QSortFilterProxyModel(this);
+    proxyModel_->setSourceModel(databaseModel_->getDatabaseModel());
+
+    ui->tableView->setModel(proxyModel_);
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
 
     ui->tableView->resizeColumnsToContents();
     ui->tableView->horizontalHeader();
+
+    //ui->lineEdit
+    connect(ui->lineEdit,SIGNAL(textEdited(constQString&)),this, SLOT(findStringProcess()));
+
     //获取表头列数
     for(int i = 0; i < ui->tableView->horizontalHeader()->count(); i++)
     {
@@ -43,4 +51,10 @@ bool ABMainWindow::init()
     }
 
     return true;
+}
+
+void ABMainWindow::findStringProcess()
+{
+    QString str = "*" + ui->lineEdit->text() + "*";
+    proxyModel_->setFilterRegExp(QRegExp(str, proxyModel_->filterCaseSensitivity()));
 }

@@ -10,6 +10,7 @@ class ABMainWindow;
 
 class ArrayDatabaseModel;
 class QSqlError;
+class QSortFilterProxyModel;
 
 class ABMainWindow : public QMainWindow
 {
@@ -20,9 +21,11 @@ public:
     ~ABMainWindow();
 
     bool init();
+    void findStringProcess();
 private:
     void showError(const QSqlError &err);
     Ui::ABMainWindow *ui;
+    QSortFilterProxyModel* proxyModel_;
     std::shared_ptr<ArrayDatabaseModel> databaseModel_;
 };
 
