@@ -9,7 +9,9 @@ ABMainWindow::ABMainWindow(QWidget *parent) :
     databaseModel_(std::make_shared<ArrayDatabaseModel>())
 {
     ui->setupUi(this);
-    connect(ui->lineEdit, SIGNAL(textChanged(const QString&)), this, SLOT(findStringProcess(const QString&)));
+    ui->lineEdit->setText("123456");
+    //connect(ui->lineEdit, SIGNAL(textChanged(const QString&)), this, SLOT(findStringProcess(const QString&)));
+connect(ui->lineEdit, &QLineEdit::textChanged, this, &ABMainWindow::findStringProcess);
 }
 
 void ABMainWindow::showError(const QSqlError &err)
@@ -54,7 +56,6 @@ bool ABMainWindow::init()
 
 void ABMainWindow::findStringProcess(const QString& s)
 {
-    QMessageBox::critical(this, "Find some Error: ", "dd");
     QString str = "*" + s + "*";
     proxyModel_->setFilterRegExp(QRegExp(str, proxyModel_->filterCaseSensitivity()));
 }
