@@ -10,7 +10,7 @@ class ABMainWindow;
 
 class ArrayDatabaseModel;
 class QSqlError;
-class QSortFilterProxyModel;
+class SortFilterProxyModel;
 
 class ABMainWindow : public QMainWindow
 {
@@ -25,7 +25,7 @@ public:
 private:
     void showError(const QSqlError &err);
     Ui::ABMainWindow *ui;
-    QSortFilterProxyModel* proxyModel_;
+    SortFilterProxyModel* proxyModel_;
     std::shared_ptr<ArrayDatabaseModel> databaseModel_;
 };
 

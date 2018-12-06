@@ -1,7 +1,7 @@
 #include "abmainwindow.h"
-#include <QtCore/qsortfilterproxymodel.h>
 #include "ui_abmainwindow.h"
 #include "arraydatabasemodel.h"
+#include "sortfilterproxymodel.h"
 
 ABMainWindow::ABMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -9,9 +9,8 @@ ABMainWindow::ABMainWindow(QWidget *parent) :
     databaseModel_(std::make_shared<ArrayDatabaseModel>())
 {
     ui->setupUi(this);
-    ui->lineEdit->setText("123456");
-    //connect(ui->lineEdit, SIGNAL(textChanged(const QString&)), this, SLOT(findStringProcess(const QString&)));
-connect(ui->lineEdit, &QLineEdit::textChanged, this, &ABMainWindow::findStringProcess);
+    connect(ui->lineEdit, &QLineEdit::textChanged, this, &ABMainWindow::findStringProcess);
+
 }
 
 void ABMainWindow::showError(const QSqlError &err)
@@ -35,15 +34,32 @@ bool ABMainWindow::init()
         return false;
     }
 
-    proxyModel_ = new QSortFilterProxyModel(this);
+    proxyModel_ = new SortFilterProxyModel(this);
     proxyModel_->setSourceModel(databaseModel_->getDatabaseModel());
+    proxyModel_->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    //proxyModel_->setFilterRole(Qt::EditRole);
+
+    QList<qint32> lst;
+    lst.append(0);
+    lst.append(1);
+    lst.append(2);
+    lst.append(3);
+    proxyModel_->setFilterKeyColumns(lst);
+    proxyModel_->addFilterFixedString(0, "*");
+    proxyModel_->addFilterFixedString(1, "*");
+    proxyModel_->addFilterFixedString(2, "*");
+    proxyModel_->addFilterFixedString(3, "*");
+
 
     ui->tableView->setModel(proxyModel_);
-    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->tableView->setSelectionMode(QAbstractItemView::MultiSelection);
 
     ui->tableView->resizeColumnsToContents();
     ui->tableView->horizontalHeader();
 
+    //QObject::connect(ui->lineEdit, &QLineEdit::textChanged, proxyModel_,
+    //        static_cast<void (QSortFilterProxyModel::*)(const QString&)>
+    //        (&QSortFilterProxyModel::setFilterRegExp));
 
     //获取表头列数
     for(int i = 0; i < ui->tableView->horizontalHeader()->count(); i++)
@@ -57,5 +73,12 @@ bool ABMainWindow::init()
 void ABMainWindow::findStringProcess(const QString& s)
 {
     QString str = "*" + s + "*";
-    proxyModel_->setFilterRegExp(QRegExp(str, proxyModel_->filterCaseSensitivity()));
+    proxyModel_->addFilterFixedString(0, str);
+    proxyModel_->addFilterFixedString(1, str);
+    proxyModel_->addFilterFixedString(2, str);
+    proxyModel_->addFilterFixedString(3, str);
+
+    proxyModel_->setFilterRegExp(QRegExp(str, proxyModel_->filterCaseSensitivity(), QRegExp::Wildcard));
+    //proxyModel_->setFilterWildcard(str);
+
 }

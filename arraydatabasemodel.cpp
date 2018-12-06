@@ -3,7 +3,7 @@
 #include "arraydatabasemodel.h"
 #include "ui_abmainwindow.h"
 
-static const QString dbPath("E:/code/qt/ab/ArrayBox.db");
+static const QString dbPath("C:/Code/qt/ab/ArrayBox/Arrays.db");
 static const QLatin1String createArraysTableSql("CREATE TABLE arrays (id integer primary key, \
         name	varchar, \
         mgmtip	varchar, \
@@ -67,11 +67,34 @@ QSqlError ArrayDatabaseModel::initDatabase()
     if (!db.open())
         return db.lastError();
 
+    QSqlQuery q;
+#if 0
+    if (!q.prepare(QLatin1String("insert into arrays(id, name, mgmtip, spaip, spbip, terminalspaip, terminalspbip, model, \
+                                  ioips, reservedby, serial, lablocation, type, url, state, statereason, pools) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")))
+        return q.lastError();
+    q.addBindValue(3);
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.addBindValue("TestArray3");
+    q.exec();
+#endif
     QStringList tables = db.tables();
     if (tables.contains("arrays", Qt::CaseInsensitive))
         return QSqlError();
 
-    QSqlQuery q;
     if (!q.exec(createArraysTableSql))
         return q.lastError();
 

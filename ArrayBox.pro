@@ -27,11 +27,13 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         abmainwindow.cpp \
-    arraydatabasemodel.cpp
+    arraydatabasemodel.cpp \
+    sortfilterproxymodel.cpp
 
 HEADERS += \
         abmainwindow.h \
-    arraydatabasemodel.h
+    arraydatabasemodel.h \
+    sortfilterproxymodel.h
 
 FORMS += \
         abmainwindow.ui
