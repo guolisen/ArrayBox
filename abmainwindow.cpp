@@ -9,6 +9,7 @@ ABMainWindow::ABMainWindow(QWidget *parent) :
     databaseModel_(std::make_shared<ArrayDatabaseModel>())
 {
     ui->setupUi(this);
+    connect(ui->lineEdit, SIGNAL(textChanged(const QString&)), this, SLOT(findStringProcess(const QString&)));
 }
 
 void ABMainWindow::showError(const QSqlError &err)
@@ -41,8 +42,6 @@ bool ABMainWindow::init()
     ui->tableView->resizeColumnsToContents();
     ui->tableView->horizontalHeader();
 
-    //ui->lineEdit
-    connect(ui->lineEdit,SIGNAL(textEdited(constQString&)),this, SLOT(findStringProcess()));
 
     //获取表头列数
     for(int i = 0; i < ui->tableView->horizontalHeader()->count(); i++)
@@ -53,8 +52,9 @@ bool ABMainWindow::init()
     return true;
 }
 
-void ABMainWindow::findStringProcess()
+void ABMainWindow::findStringProcess(const QString& s)
 {
-    QString str = "*" + ui->lineEdit->text() + "*";
+    QMessageBox::critical(this, "Find some Error: ", "dd");
+    QString str = "*" + s + "*";
     proxyModel_->setFilterRegExp(QRegExp(str, proxyModel_->filterCaseSensitivity()));
 }

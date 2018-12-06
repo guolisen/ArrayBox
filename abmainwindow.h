@@ -21,7 +21,7 @@ public:
     ~ABMainWindow();
 
     bool init();
-    void findStringProcess();
+    void findStringProcess(const QString& s);
 private:
     void showError(const QSqlError &err);
     Ui::ABMainWindow *ui;
