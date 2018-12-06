@@ -4,20 +4,21 @@ SortFilterProxyModel::SortFilterProxyModel(QObject *parent) : QSortFilterProxyMo
 {
 }
 
-void SortFilterProxyModel::setFilterKeyColumns(const QList<qint32> &filterColumns)
+void SortFilterProxyModel::setFilterKeyColumns(qint32 colNum)
 {
     columnPatterns_.clear();
 
-    foreach(qint32 column, filterColumns)
-        columnPatterns_.insert(column, QString());
+    for (qint32 i= 0; i < colNum; ++i)
+        columnPatterns_.insert(i, QString());
 }
 
-void SortFilterProxyModel::addFilterFixedString(qint32 column, const QString &pattern)
+void SortFilterProxyModel::addFilterFixedString(const QString &pattern)
 {
-    if(!columnPatterns_.contains(column))
-        return;
-
-    columnPatterns_[column] = pattern;
+    //if(!columnPatterns_.contains(column))
+    //    return;
+    qint32 count = columnPatterns_.size();
+    for (qint32 i= 0; i < count; ++i)
+        columnPatterns_[i] = pattern;
 }
 
 bool SortFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const

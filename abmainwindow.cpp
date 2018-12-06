@@ -37,29 +37,15 @@ bool ABMainWindow::init()
     proxyModel_ = new SortFilterProxyModel(this);
     proxyModel_->setSourceModel(databaseModel_->getDatabaseModel());
     proxyModel_->setFilterCaseSensitivity(Qt::CaseInsensitive);
-    //proxyModel_->setFilterRole(Qt::EditRole);
 
-    QList<qint32> lst;
-    lst.append(0);
-    lst.append(1);
-    lst.append(2);
-    lst.append(3);
-    proxyModel_->setFilterKeyColumns(lst);
-    proxyModel_->addFilterFixedString(0, "*");
-    proxyModel_->addFilterFixedString(1, "*");
-    proxyModel_->addFilterFixedString(2, "*");
-    proxyModel_->addFilterFixedString(3, "*");
-
+    proxyModel_->setFilterKeyColumns(10);
+    proxyModel_->addFilterFixedString("*");
 
     ui->tableView->setModel(proxyModel_);
     ui->tableView->setSelectionMode(QAbstractItemView::MultiSelection);
 
     ui->tableView->resizeColumnsToContents();
     ui->tableView->horizontalHeader();
-
-    //QObject::connect(ui->lineEdit, &QLineEdit::textChanged, proxyModel_,
-    //        static_cast<void (QSortFilterProxyModel::*)(const QString&)>
-    //        (&QSortFilterProxyModel::setFilterRegExp));
 
     //获取表头列数
     for(int i = 0; i < ui->tableView->horizontalHeader()->count(); i++)
@@ -73,12 +59,7 @@ bool ABMainWindow::init()
 void ABMainWindow::findStringProcess(const QString& s)
 {
     QString str = "*" + s + "*";
-    proxyModel_->addFilterFixedString(0, str);
-    proxyModel_->addFilterFixedString(1, str);
-    proxyModel_->addFilterFixedString(2, str);
-    proxyModel_->addFilterFixedString(3, str);
-
+    proxyModel_->addFilterFixedString(str);
     proxyModel_->setFilterRegExp(QRegExp(str, proxyModel_->filterCaseSensitivity(), QRegExp::Wildcard));
     //proxyModel_->setFilterWildcard(str);
-
 }

@@ -3,7 +3,7 @@
 #include "arraydatabasemodel.h"
 #include "ui_abmainwindow.h"
 
-static const QString dbPath("C:/Code/qt/ab/ArrayBox/Arrays.db");
+static const QString dbPath("../ab/ArrayBox/Arrays.db");
 static const QLatin1String createArraysTableSql("CREATE TABLE arrays (id integer primary key, \
         name	varchar, \
         mgmtip	varchar, \
