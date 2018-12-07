@@ -122,11 +122,11 @@ bool ABMainWindow::init()
 
     connect(ui->tableView->selectionModel(),
             &QItemSelectionModel::currentRowChanged,
-            mapper_,
-            &QDataWidgetMapper::setCurrentModelIndex
+            this,
+            &ABMainWindow::currentRowChangedProcess
             );
 
-    //ui->tableView->setCurrentIndex(databaseModel_->getDatabaseModel()->index(1, 0));
+    ui->tableView->setCurrentIndex(databaseModel_->getDatabaseModel()->index(0, 0));
     statusBar()->showMessage(tr("Ready"));
     return true;
 }
@@ -138,10 +138,13 @@ void ABMainWindow::findStringProcess(const QString& s)
     proxyModel_->setFilterRegExp(QRegExp(str, proxyModel_->filterCaseSensitivity(), QRegExp::Wildcard));
 }
 
-void ABMainWindow::currentRowChangedProcess(int row)
+void ABMainWindow::currentRowChangedProcess(const QModelIndex &current, const QModelIndex &previous)
 {
-    mapper_->setCurrentIndex(row);
+    //mapper_->setCurrentIndex(row);
+    mapper_->setCurrentModelIndex(current);
+    return;
 }
+
 
 void ABMainWindow::createMenu()
 {

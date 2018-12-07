@@ -23,7 +23,7 @@ public:
 
     bool init();
     void findStringProcess(const QString& s);
-    void currentRowChangedProcess(int row);
+    void currentRowChangedProcess(const QModelIndex &current, const QModelIndex &previous);
 private:
     void createMenu();
     void createToolbar();
