@@ -55,8 +55,8 @@ void ABMainWindow::tableViewInit()
 
     ui->tableView->horizontalScrollBar()->setStyleSheet("QScrollBar:horizontal{"
                                                         "background:#FFFFFF;"
-                                                        "padding-top:10px;"
-                                                        "padding-bottom:10px;"
+                                                        "padding-top:15px;"
+                                                        "padding-bottom:2px;"
                                                         "padding-left:20px;"
                                                         "padding-right:20px;}"
                                                         "QScrollBar::handle:horizontal{"
@@ -70,7 +70,6 @@ void ABMainWindow::tableViewInit()
                                                         "QScrollBar::sub-line:horizontal{"
                                                         "background:url(:/images/resource/images/checkout/left.png) center no-repeat;}"
                                                         );
-    //ui->tableView->horizontalScrollBar()->setMaximumHeight(15);
     //获取表头列数
     for(int i = 0; i < ui->tableView->horizontalHeader()->count(); i++)
     {
@@ -108,19 +107,26 @@ bool ABMainWindow::init()
 
     tableViewInit();
 
-    QDataWidgetMapper *mapper = new QDataWidgetMapper(this);
-    mapper->setModel(databaseModel_->getDatabaseModel());
+    mapper_ = new QDataWidgetMapper(this);
+    mapper_->setModel(databaseModel_->getDatabaseModel());
     //mapper->setItemDelegate(new BookDelegate(this));
-    mapper->addMapping(ui->nameLineEdit, databaseModel_->getDatabaseModel()->fieldIndex("name"));
+    mapper_->addMapping(ui->nameLineEdit, databaseModel_->getDatabaseModel()->fieldIndex("name"));
    //mapper->addMapping(ui.yearEdit, proxyModel_->fieldIndex("year"));
+
+#if 0
+    connect(ui->tableView,
+            &QTableView::selectRow,
+            this,
+            &ABMainWindow::currentRowChangedProcess);
+#endif
 
     connect(ui->tableView->selectionModel(),
             &QItemSelectionModel::currentRowChanged,
-            mapper,
+            mapper_,
             &QDataWidgetMapper::setCurrentModelIndex
             );
 
-
+    //ui->tableView->setCurrentIndex(databaseModel_->getDatabaseModel()->index(1, 0));
     statusBar()->showMessage(tr("Ready"));
     return true;
 }
@@ -130,6 +136,11 @@ void ABMainWindow::findStringProcess(const QString& s)
     QString str = "*" + s + "*";
     proxyModel_->addFilterFixedString(str);
     proxyModel_->setFilterRegExp(QRegExp(str, proxyModel_->filterCaseSensitivity(), QRegExp::Wildcard));
+}
+
+void ABMainWindow::currentRowChangedProcess(int row)
+{
+    mapper_->setCurrentIndex(row);
 }
 
 void ABMainWindow::createMenu()

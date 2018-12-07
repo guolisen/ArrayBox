@@ -11,6 +11,7 @@ class ABMainWindow;
 class ArrayDatabaseModel;
 class QSqlError;
 class SortFilterProxyModel;
+class QDataWidgetMapper;
 
 class ABMainWindow : public QMainWindow
 {
@@ -22,7 +23,7 @@ public:
 
     bool init();
     void findStringProcess(const QString& s);
-
+    void currentRowChangedProcess(int row);
 private:
     void createMenu();
     void createToolbar();
@@ -34,6 +35,7 @@ private:
     Ui::ABMainWindow *ui;
     SortFilterProxyModel* proxyModel_;
     std::shared_ptr<ArrayDatabaseModel> databaseModel_;
+    QDataWidgetMapper* mapper_;
 };
 
 #endif // ABMAINWINDOW_H
