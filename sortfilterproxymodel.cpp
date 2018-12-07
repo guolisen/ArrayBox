@@ -34,6 +34,7 @@ bool SortFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &so
     {
         QModelIndex index = sourceModel()->index(sourceRow, iter.key(), sourceParent);
         QRegExp rx(iter.value());
+        rx.setCaseSensitivity(Qt::CaseInsensitive);
         rx.setPatternSyntax(QRegExp::Wildcard);
         QString f = index.data().toString();
         ret = rx.exactMatch(index.data().toString());

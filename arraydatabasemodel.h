@@ -12,7 +12,7 @@ public:
     ArrayDatabaseModel();
 
     QSqlError init(QTableView* tableView);
-    QSqlTableModel* getDatabaseModel() const
+    QSqlRelationalTableModel* getDatabaseModel() const
     {
         return model_.get();
     }

@@ -22,8 +22,15 @@ public:
 
     bool init();
     void findStringProcess(const QString& s);
+
 private:
+    void createMenu();
+    void createToolbar();
+    void tableViewInit();
+    QSqlError databaseInit();
     void showError(const QSqlError &err);
+
+
     Ui::ABMainWindow *ui;
     SortFilterProxyModel* proxyModel_;
     std::shared_ptr<ArrayDatabaseModel> databaseModel_;
