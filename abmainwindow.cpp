@@ -2,6 +2,8 @@
 #include "ui_abmainwindow.h"
 #include "arraydatabasemodel.h"
 #include "sortfilterproxymodel.h"
+#include "detailrelationaldelegate.h"
+
 
 ABMainWindow::ABMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -27,6 +29,8 @@ ABMainWindow::~ABMainWindow()
 void ABMainWindow::tableViewInit()
 {
     ui->tableView->setModel(proxyModel_);
+    //ui->tableView->setItemDelegate(delegate_);
+
     //ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
     ui->tableView->resizeColumnsToContents();
@@ -89,7 +93,7 @@ QSqlError ABMainWindow::databaseInit()
 
     proxyModel_->setFilterKeyColumns(10);
     proxyModel_->addFilterFixedString("*");
-
+    delegate_ = new DetailRelationalDelegate(this, databaseModel_->getDatabaseModel());
     return QSqlError();
 }
 
@@ -107,18 +111,21 @@ bool ABMainWindow::init()
 
     tableViewInit();
 
+    QSqlRelationalTableModel* model = databaseModel_->getDatabaseModel();
     mapper_ = new QDataWidgetMapper(this);
-    mapper_->setModel(databaseModel_->getDatabaseModel());
-    //mapper->setItemDelegate(new BookDelegate(this));
-    mapper_->addMapping(ui->nameLineEdit, databaseModel_->getDatabaseModel()->fieldIndex("name"));
-   //mapper->addMapping(ui.yearEdit, proxyModel_->fieldIndex("year"));
-
-#if 0
-    connect(ui->tableView,
-            &QTableView::selectRow,
-            this,
-            &ABMainWindow::currentRowChangedProcess);
-#endif
+    mapper_->setModel(model);
+    mapper_->setItemDelegate(new DetailRelationalDelegate(this, databaseModel_->getDatabaseModel()));
+    mapper_->addMapping(ui->nameLineEdit, model->fieldIndex("name"));
+    mapper_->addMapping(ui->mgmtIPLineEdit, model->fieldIndex("mgmtip"));
+    mapper_->addMapping(ui->versionLineEdit, model->fieldIndex("version"));
+    mapper_->addMapping(ui->modelLineEdit, model->fieldIndex("model"));
+    mapper_->addMapping(ui->labIPSPALineEdit, model->fieldIndex("spaip"));
+    mapper_->addMapping(ui->labIPSPBLineEdit, model->fieldIndex("spbip"));
+    mapper_->addMapping(ui->terminalSPALineEdit, model->fieldIndex("terminalspaip"));
+    mapper_->addMapping(ui->terminalSPBLineEdit, model->fieldIndex("terminalspbip"));
+    mapper_->addMapping(ui->serialLineEdit, model->fieldIndex("serial"));
+    mapper_->addMapping(ui->typeLineEdit, model->fieldIndex("type"));
+    mapper_->addMapping(ui->iOIPsComboBox, model->fieldIndex("ioips"));
 
     connect(ui->tableView->selectionModel(),
             &QItemSelectionModel::currentRowChanged,
@@ -126,7 +133,8 @@ bool ABMainWindow::init()
             &ABMainWindow::currentRowChangedProcess
             );
 
-    ui->tableView->setCurrentIndex(databaseModel_->getDatabaseModel()->index(0, 0));
+
+    //ui->tableView->setCurrentIndex(databaseModel_->getDatabaseModel()->index(0, 0));
     statusBar()->showMessage(tr("Ready"));
     return true;
 }
@@ -140,8 +148,8 @@ void ABMainWindow::findStringProcess(const QString& s)
 
 void ABMainWindow::currentRowChangedProcess(const QModelIndex &current, const QModelIndex &previous)
 {
-    //mapper_->setCurrentIndex(row);
-    mapper_->setCurrentModelIndex(current);
+    mapper_->setCurrentIndex(current.row());
+    //mapper_->setCurrentModelIndex(current);
     return;
 }
 

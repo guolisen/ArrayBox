@@ -28,12 +28,14 @@ SOURCES += \
         main.cpp \
         abmainwindow.cpp \
     arraydatabasemodel.cpp \
-    sortfilterproxymodel.cpp
+    sortfilterproxymodel.cpp \
+    detailrelationaldelegate.cpp
 
 HEADERS += \
         abmainwindow.h \
     arraydatabasemodel.h \
-    sortfilterproxymodel.h
+    sortfilterproxymodel.h \
+    detailrelationaldelegate.h
 
 FORMS += \
         abmainwindow.ui

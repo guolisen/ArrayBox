@@ -12,6 +12,7 @@ class ArrayDatabaseModel;
 class QSqlError;
 class SortFilterProxyModel;
 class QDataWidgetMapper;
+class DetailRelationalDelegate;
 
 class ABMainWindow : public QMainWindow
 {
@@ -36,6 +37,7 @@ private:
     SortFilterProxyModel* proxyModel_;
     std::shared_ptr<ArrayDatabaseModel> databaseModel_;
     QDataWidgetMapper* mapper_;
+    DetailRelationalDelegate* delegate_;
 };
 
 #endif // ABMAINWINDOW_H

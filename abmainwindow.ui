@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>817</width>
-    <height>599</height>
+    <width>815</width>
+    <height>592</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,6 +20,12 @@
    <string>DeviceBox</string>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
@@ -150,7 +156,7 @@
               <bool>true</bool>
              </property>
              <property name="readOnly">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -164,7 +170,7 @@
            <item row="1" column="1">
             <widget class="QLineEdit" name="modelLineEdit">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -191,7 +197,7 @@
            <item row="3" column="1">
             <widget class="QLineEdit" name="serialLineEdit">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -228,7 +234,7 @@
            <item row="0" column="1">
             <widget class="QLineEdit" name="mgmtIPLineEdit">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -245,7 +251,7 @@
            <item row="1" column="1">
             <widget class="QLineEdit" name="labIPSPALineEdit">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -262,7 +268,7 @@
            <item row="2" column="1">
             <widget class="QLineEdit" name="labIPSPBLineEdit">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -279,7 +285,7 @@
            <item row="3" column="1">
             <widget class="QLineEdit" name="typeLineEdit">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -316,7 +322,7 @@
            <item row="0" column="1">
             <widget class="QLineEdit" name="versionLineEdit">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -333,7 +339,7 @@
            <item row="1" column="1">
             <widget class="QLineEdit" name="terminalSPALineEdit">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -350,7 +356,7 @@
            <item row="2" column="1">
             <widget class="QLineEdit" name="terminalSPBLineEdit">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -361,7 +367,7 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>620</x>
@@ -397,8 +403,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>817</width>
-     <height>20</height>
+     <width>815</width>
+     <height>17</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">

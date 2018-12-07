@@ -20,7 +20,8 @@ static const QLatin1String createArraysTableSql("CREATE TABLE arrays (id integer
         url	varchar, \
         state	varchar, \
         statereason	varchar, \
-        pools	varchar \
+        pools	varchar, \
+        version	varchar \
     );");
 
 ArrayDatabaseModel::ArrayDatabaseModel()
