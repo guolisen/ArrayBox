@@ -125,7 +125,7 @@ bool ABMainWindow::init()
     mapper_->addMapping(ui->terminalSPBLineEdit, model->fieldIndex("terminalspbip"));
     mapper_->addMapping(ui->serialLineEdit, model->fieldIndex("serial"));
     mapper_->addMapping(ui->typeLineEdit, model->fieldIndex("type"));
-    mapper_->addMapping(ui->iOIPsComboBox, model->fieldIndex("ioips"));
+    mapper_->addMapping(ui->listView, model->fieldIndex("ioips"));
 
     connect(ui->tableView->selectionModel(),
             &QItemSelectionModel::currentRowChanged,
