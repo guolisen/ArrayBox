@@ -3,52 +3,54 @@
 #include "detailrelationaldelegate.h"
 
 DetailRelationalDelegate::DetailRelationalDelegate(QObject *parent, QSqlRelationalTableModel *model):
-    QSqlRelationalDelegate(parent), model_(model)
+    QItemDelegate(parent), model_(model)
 {
 
-}
-
-QWidget *DetailRelationalDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
-{
-
-    if (index.column() != model_->fieldIndex("ioips"))
-        return QSqlRelationalDelegate::createEditor(parent, option, index);
-
-
-    QComboBox *combobox = new QComboBox(parent);
-
-
-    QString ioipsStr = index.data().toString();
-    //combobox->addItem()
-
-    return nullptr;
 }
 
 void DetailRelationalDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    QSqlRelationalDelegate::paint(painter, option, index);
-    return;
-#if 0
     if (index.column() != model_->fieldIndex("ioips"))
     {
-        QSqlRelationalDelegate::paint(painter, option, index);
+        QItemDelegate::paint(painter, option, index);
         return;
     }
 
+    QStyleOptionComboBox comboBoxOption;
+    comboBoxOption.rect = option.rect;
+    comboBoxOption.state = option.state;
+    comboBoxOption.state |= QStyle::State_Enabled;
+    comboBoxOption.editable = false;
+    //comboBoxOption.currentText = "testcombobox";
 
-        int progress = index.data().toInt();
+    QComboBox* comboBox = new QComboBox;
+    QString srcStr = index.data().toString();
+    QStringList ioipList = srcStr.split(',', QString::SkipEmptyParts);
+    comboBox->addItems(ioipList);
 
-        QStyleOptionProgressBar progressBarOption;
-        progressBarOption.rect = option.rect;
-        progressBarOption.minimum = 0;
-        progressBarOption.maximum = 100;
-        progressBarOption.progress = progress;
-        progressBarOption.text = QString::number(progress) + "%";
-        progressBarOption.textVisible = true;
+    QApplication::style()->drawComplexControl(QStyle::CC_ComboBox, &comboBoxOption, painter);
 
+    return;
+}
 
-        QApplication::style()->drawControl(QStyle::CE_ProgressBar,
-                                           &progressBarOption, painter);
-#endif
+QWidget *DetailRelationalDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    return nullptr;
+}
+
+void DetailRelationalDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
+{
+    if (index.column() != model_->fieldIndex("ioips"))
+    {
+        QItemDelegate::setEditorData(editor, index);
+        return;
+    }
+
+    QComboBox* cb = qobject_cast<QComboBox*>(editor);
+    QString srcStr = index.data().toString();
+    QStringList ioipList = srcStr.split(',', QString::SkipEmptyParts);
+    cb->clear();
+    cb->addItems(ioipList);
 
 }
+

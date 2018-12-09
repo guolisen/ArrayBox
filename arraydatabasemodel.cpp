@@ -23,6 +23,10 @@ static const QLatin1String createArraysTableSql("CREATE TABLE arrays (id integer
         pools	varchar, \
         version	varchar \
     );");
+static const QLatin1String createIoIpSql("CREATE TABLE ioip (id integer primary key, \
+                                                            name varchar, \
+                                                            ip varchar\
+                                                        );");
 
 ArrayDatabaseModel::ArrayDatabaseModel()
 {
@@ -97,6 +101,8 @@ QSqlError ArrayDatabaseModel::initDatabase()
         return QSqlError();
 
     if (!q.exec(createArraysTableSql))
+        return q.lastError();
+    if (!q.exec(createIoIpSql))
         return q.lastError();
 
     return QSqlError();

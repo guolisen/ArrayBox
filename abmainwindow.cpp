@@ -1,9 +1,9 @@
+#include <QComboBox>
 #include "abmainwindow.h"
 #include "ui_abmainwindow.h"
 #include "arraydatabasemodel.h"
 #include "sortfilterproxymodel.h"
 #include "detailrelationaldelegate.h"
-
 
 ABMainWindow::ABMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -29,7 +29,7 @@ ABMainWindow::~ABMainWindow()
 void ABMainWindow::tableViewInit()
 {
     ui->tableView->setModel(proxyModel_);
-    //ui->tableView->setItemDelegate(delegate_);
+    ui->tableView->setItemDelegate(new DetailRelationalDelegate(this, databaseModel_->getDatabaseModel()));
 
     //ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -37,8 +37,8 @@ void ABMainWindow::tableViewInit()
 
     ui->tableView->horizontalHeader()->resizeSection(0,150);  //修改表头第一列的宽度为150
     ui->tableView->horizontalHeader()->setFixedHeight(25);  //修改表头合适的高度
-    ui->tableView->horizontalHeader()->setStyleSheet("QHeaderView::section {background-color:lightblue;color: black;padding-left: 4px;border: 1px solid #6c6c6c;}");    //设置表头字体，颜色，模式
-    ui->tableView->verticalHeader()->setStyleSheet("QHeaderView::section {  background-color:skyblue;color: black;padding-left: 4px;border: 1px solid #6c6c6c}");   //设置纵列的边框项的字体颜色模式等
+    ui->tableView->horizontalHeader()->setStyleSheet("QHeaderView::section {background-color:lightblue;color: black;padding-left: 4px;border: 0.5px solid #FFFFFF;}");    //设置表头字体，颜色，模式
+    ui->tableView->verticalHeader()->setStyleSheet("QHeaderView::section {  background-color:skyblue;color: black;padding-left: 4px;border: 0.5px solid #FFFFFF}");   //设置纵列的边框项的字体颜色模式等
     ui->tableView->verticalScrollBar()->setStyleSheet("QScrollBar:vertical{"        //垂直滑块整体
                                                       "background:#FFFFFF;"  //背景色
                                                       "padding-top:20px;"    //上预留位置（放置向上箭头）
@@ -93,7 +93,7 @@ QSqlError ABMainWindow::databaseInit()
 
     proxyModel_->setFilterKeyColumns(10);
     proxyModel_->addFilterFixedString("*");
-    delegate_ = new DetailRelationalDelegate(this, databaseModel_->getDatabaseModel());
+
     return QSqlError();
 }
 
@@ -114,7 +114,7 @@ bool ABMainWindow::init()
     QSqlRelationalTableModel* model = databaseModel_->getDatabaseModel();
     mapper_ = new QDataWidgetMapper(this);
     mapper_->setModel(model);
-    mapper_->setItemDelegate(new DetailRelationalDelegate(this, databaseModel_->getDatabaseModel()));
+    mapper_->setItemDelegate(new DetailRelationalDelegate(this, model));
     mapper_->addMapping(ui->nameLineEdit, model->fieldIndex("name"));
     mapper_->addMapping(ui->mgmtIPLineEdit, model->fieldIndex("mgmtip"));
     mapper_->addMapping(ui->versionLineEdit, model->fieldIndex("version"));
@@ -133,7 +133,6 @@ bool ABMainWindow::init()
             &ABMainWindow::currentRowChangedProcess
             );
 
-
     //ui->tableView->setCurrentIndex(databaseModel_->getDatabaseModel()->index(0, 0));
     statusBar()->showMessage(tr("Ready"));
     return true;
@@ -149,10 +148,8 @@ void ABMainWindow::findStringProcess(const QString& s)
 void ABMainWindow::currentRowChangedProcess(const QModelIndex &current, const QModelIndex &previous)
 {
     mapper_->setCurrentIndex(current.row());
-    //mapper_->setCurrentModelIndex(current);
-    return;
-}
 
+}
 
 void ABMainWindow::createMenu()
 {
