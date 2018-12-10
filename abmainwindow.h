@@ -25,6 +25,10 @@ public:
     bool init();
     void findStringProcess(const QString& s);
     void currentRowChangedProcess(const QModelIndex &current, const QModelIndex &previous);
+
+private slots:
+    void about();
+    void insterFromSwarm();
 private:
     void createMenu();
     void createToolbar();

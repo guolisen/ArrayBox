@@ -161,7 +161,20 @@ void ABMainWindow::currentRowChangedProcess(const QModelIndex &current, const QM
 
 void ABMainWindow::createMenu()
 {
+    QAction *quitAction = new QAction(tr("&Quit"), this);
+    QAction *aboutAction = new QAction(tr("&About"), this);
+    QAction *insertFromSwarmAction = new QAction(tr("&Insert From Swarm"), this);
 
+    QMenu *fileMenu = menuBar()->addMenu(tr("&File"));
+    fileMenu->addAction(insertFromSwarmAction);
+    fileMenu->addAction(quitAction);
+
+    QMenu *helpMenu = menuBar()->addMenu(tr("&Help"));
+    helpMenu->addAction(aboutAction);
+
+    connect(quitAction, &QAction::triggered, this, &ABMainWindow::close);
+    connect(aboutAction, &QAction::triggered, this, &ABMainWindow::about);
+    connect(insertFromSwarmAction, &QAction::triggered, this, &ABMainWindow::insterFromSwarm);
 }
 
 void ABMainWindow::createToolbar()
@@ -172,4 +185,18 @@ void ABMainWindow::createToolbar()
     newAct->setStatusTip(tr("Create a new file"));
     //connect(newAct, &QAction::triggered, this, &MainWindow::newFile);
     ui->mainToolBar->addAction(newAct);
+}
+
+void ABMainWindow::about()
+{
+    QMessageBox::about(this, tr("About DeviceBox"),
+            tr("Just a Test!"
+               "with a model/view framework."));
+}
+
+void ABMainWindow::insterFromSwarm()
+{
+    QMessageBox::about(this, tr("About DeviceBox"),
+            tr("Just a Test!"
+               "with a model/view framework."));
 }
