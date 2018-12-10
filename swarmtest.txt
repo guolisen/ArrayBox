@@ -1,0 +1,163 @@
+
+
+
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystem/instances?filter=name%20ilk%20%27bs-d9526%27&per_page=9999&fields=id
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystem/instances?filter=id%20ilk%20%27bs-d9526%27&per_page=9999&fields=id
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystem/instances?filter=productserialno%20ilk%20%27bs-d9526%27&per_page=9999&fields=id
+Request: https://swarm.usd.lab.emc.com/api/instances/storageSysDetailView/FCNCH0972DDD9D?per_page=100
+Request: https://swarm.usd.lab.emc.com/api/instances/storageSystem/FCNCH0972DDD9D/stateDetails?orderby=dateset%20DESC&per_page=100
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystem/instances?filter=id%20eq%20%27FCNCH0972DDD9D%27&per_page=100
+Request: https://swarm.usd.lab.emc.com/api/types/sp/instances?per_page=100&filter=storagesystem%20eq%20%27FCNCH0972DDD9D%27
+Request: https://swarm.usd.lab.emc.com/api/types/poolStorageSystem/instances?per_page=100&filter=storagesystem%20eq%20%27FCNCH0972DDD9D%27
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystemTag/instances?per_page=100&filter=storagesystem%20eq%20%27FCNCH0972DDD9D%27%20and%20active%20eq%20%271%27
+Request: https://swarm.usd.lab.emc.com/api/types/note/instances?per_page=100&filter=storagesystem%20eq%20%27FCNCH0972DDD9D%27
+Request: https://swarm.usd.lab.emc.com/api/types/ioport/instances?per_page=100
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystemIp/instances?fields=storagesystem%2Cipid%2Cinterfaceid%2Cioport&per_page=99999
+Request: https://swarm.usd.lab.emc.com/api/types/ip/instances?per_page=100&filter=id%20in%20%28298409%2C298411%2C298412%2C298413%2C298414%2C298416%2C298423%2C324495%29
+Request: https://swarm.usd.lab.emc.com/api/types/interface/instances?per_page=100
+Request: https://swarm.usd.lab.emc.com/api/types/state/instances?per_page=100
+Request: https://swarm.usd.lab.emc.com/api/types/pool/instances?per_page=99999
+
+
+{"firstname":"Lewis","name":"guol13","lastname":"Guo","email":"Lewis.Guo@emc.com","fullname":"Guo, Lewis","id":9246,"role":"Non-Manager","pools":[1,0,1022,1022,1207,583,1202,825,704,730,1202]}
+
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystem/instances?filter=name%20ilk%20%27bs-d9526%27&fields=id&per_page=9999
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystem/instances?filter=name%20ilk%20%27bs-d9526%27&fields=id&per_page=9999
+0.114875
+{"entries":[{"id":"FCNCH0972DDD9D"}],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/storageSystem\/instances?filter=name+ilk+'bs-d9526'&fields=id&per_page=9999","entryCount":1,"links":[{"rel":"first","href":"&page=1"},{"rel":"self","href":"&page=1"},{"rel":"last","href":"&page=1"}]}
+
+
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystem/instances?fields=id&filter=id%20ilk%20%27bs-d9526%27&per_page=9999
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystem/instances?fields=id&filter=id%20ilk%20%27bs-d9526%27&per_page=9999
+0.04173
+{"entries":[],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/storageSystem\/instances?fields=id&filter=id+ilk+'bs-d9526'&per_page=9999","entryCount":0,"links":[]}
+
+
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystem/instances?filter=productserialno%20ilk%20%27bs-d9526%27&fields=id&per_page=9999
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystem/instances?filter=productserialno%20ilk%20%27bs-d9526%27&fields=id&per_page=9999
+0.033521
+Search results: 1 found
+{"entries":[],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/storageSystem\/instances?filter=productserialno+ilk+'bs-d9526'&fields=id&per_page=9999","entryCount":0,"links":[]}
+
+
+Request: https://swarm.usd.lab.emc.com/api/instances/storageSysDetailView/FCNCH0972DDD9D?per_page=100
+Request: https://swarm.usd.lab.emc.com/api/instances/storageSysDetailView/FCNCH0972DDD9D?per_page=100
+1.372833
+{"content":[{"memory_configuration":null,"spaip":"10.109.221.157","consoleip":null,"post":null,"model":"Beachcomber Simulator","hypervisor":"VMware ESX","program":35,"password":null,"id":"FCNCH0972DDD9D","diskcount":7,"location":null,"bmcaip":null,"csipv6":"2620:0:170:75d8:260:1600:3c2d:dd9d","name":"bs-d9526","productserialno":"FCNCH0972DDD9D","username":null,"terminalbport":"50669","rempowsupip":null,"bounddiskcount":null,"type":{"type":"Virtual","id":1},"bmcbip":null,"rempowsupoutb":"","crawledmodel":null,"totalcapacity":null,"responsiblemanager":{"firstname":"Huan","name":"chenh13","lastname":"Chen","email":"huan.chen@emc.com","employee_id":"095858","id":188,"managerid":4531,"role":2},"bios":null,"rempowsupouta":"","racklocation":null,"series":"VNXe2","pduname":null,"terminalaport":"50661","lastcrawltime":"2018-11-19 06:47:06.11","frequent_crawl":0,"spbip":"10.109.221.158","cs1ip":null,"imagefile":null,"csip":"10.109.221.156","owner":{"firstname":"Craig","name":"cbernero","lastname":"Bernero","email":"craig.bernero@emc.com","employee_id":"010528","id":1926,"managerid":1920,"role":2},"lastcrawlresult":{"id":1,"description":"Able to retrieve all the information successfully","result":"Pass"},"version":"N1-D7-16G","reserved_by":{"firstname":"Lewis","name":"guol13","lastname":"Guo","email":"Lewis.Guo@emc.com","employee_id":"1183943","id":9246,"managerid":214,"role":2},"blockfilestate":null,"image":"c4dev_dev_wangx49_dedupdomain111.1541518757","virtualmanagementserver":"usddrmvctr1.corp.emc.com","lab":"Lab 1","terminalip":"10.141.11.168"}],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/instances\/storageSysDetailView","links":[{"href":"\/FCNCH0972DDD9D?per_page=100","ref":"self"}]}
+
+
+
+Request: https://swarm.usd.lab.emc.com/api/instances/storageSystem/FCNCH0972DDD9D/stateDetails?per_page=100&orderby=dateset%20DESC
+Request: https://swarm.usd.lab.emc.com/api/instances/storageSystem/FCNCH0972DDD9D/stateDetails?per_page=100&orderby=dateset%20DESC
+0.042148
+{"entries":[{"dateset":"2014-09-17 00:50:05","userid":2278,"reason":"","id":20630,"issuenumber":null,"state":1}],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/instances\/storageSystem\/FCNCH0972DDD9D\/stateDetails?orderby=dateset+DESC&per_page=100","entryCount":1,"links":[{"rel":"first","href":"&page=1"},{"rel":"self","href":"&page=1"},{"rel":"last","href":"&page=1"}]}
+
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystem/instances?per_page=100&filter=id%20eq%20%27FCNCH0972DDD9D%27
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystem/instances?per_page=100&filter=id%20eq%20%27FCNCH0972DDD9D%27
+0.025703
+{"entries":[{"currentio":null,"mode":null,"model":"Beachcomber Simulator","hypervisor":1,"updatestate":null,"updated_on":"2017-06-01 00:44:15","program":35,"password":null,"target":null,"created_on":"2014-09-17 00:50:05","category":"KittyHawk+","id":"FCNCH0972DDD9D","mode_updated_on":null,"systemversion":null,"healthstate":null,"diskcount":7,"securitystate":null,"location":null,"name":"bs-d9526","updated_by":null,"productserialno":"FCNCH0972DDD9D","backendtype":null,"username":null,"bounddiskcount":null,"stats_logging":null,"convertedusercapacity":null,"type":1,"customfield4":null,"simscriptcounter":null,"created_by":null,"crawledmodel":null,"responsiblemanager":188,"totalcapacity":null,"codelastloaded":null,"status":null,"artifact":null,"racklocation":null,"series":"VNXe2","businessunit":1,"unitnumber":null,"allocatedto":null,"frequent_crawl":0,"customfield2":null,"systemuptime":null,"productpartno":null,"owner":1926,"customfield3":null,"spcount":2,"version":"N1-D7-16G","blockfilestate":null,"customfield1":null,"comment":null,"virtualmanagementserver":2,"lastupdatetime":null,"lab":"Lab 1","encryptionstatus":null,"product":null,"config":null,"last_ui_login":"2015-05-21 08:23:03"}],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/storageSystem\/instances?filter=id+eq+'FCNCH0972DDD9D'&per_page=100","entryCount":1,"links":[{"rel":"first","href":"&page=1"},{"rel":"self","href":"&page=1"},{"rel":"last","href":"&page=1"}]}
+
+Request: https://swarm.usd.lab.emc.com/api/types/sp/instances?filter=storagesystem%20eq%20%27FCNCH0972DDD9D%27&per_page=100
+Request: https://swarm.usd.lab.emc.com/api/types/sp/instances?filter=storagesystem%20eq%20%27FCNCH0972DDD9D%27&per_page=100
+0.030865
+{"entries":[{"memory_configuration":null,"bios":null,"mode":null,"post":null,"model":null,"cpu_utilization":13,"writecachesize":null,"totalmemory":null,"cdes":null,"operationalstate":null,"uptime":1021293,"readcachesize":null,"id":"FCNCH0972DDD9DSPA","productpartno":null,"healthstate":null,"temperature":null,"slot":0,"enclosure":"FCNCH0972DDD9DE0","localid":null,"storagesystem":"FCNCH0972DDD9D","name":null,"productserialno":"FCNCH0972DDD9DSPA","taskrun":1063352894,"ram":null},{"memory_configuration":null,"bios":null,"mode":null,"post":null,"model":null,"cpu_utilization":6,"writecachesize":null,"totalmemory":null,"cdes":null,"operationalstate":null,"uptime":991728,"readcachesize":null,"id":"FCNCH0972DDD9DSPB","productpartno":null,"healthstate":null,"temperature":null,"slot":0,"enclosure":"FCNCH0972DDD9DE0","localid":null,"storagesystem":"FCNCH0972DDD9D","name":null,"productserialno":"FCNCH0972DDD9DSPB","taskrun":1063239934,"ram":null}],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/sp\/instances?filter=storagesystem+eq+'FCNCH0972DDD9D'&per_page=100","entryCount":2,"links":[{"rel":"first","href":"&page=1"},{"rel":"self","href":"&page=1"},{"rel":"last","href":"&page=1"}]}
+
+
+
+Request: https://swarm.usd.lab.emc.com/api/types/poolStorageSystem/instances?per_page=100&filter=storagesystem%20eq%20%27FCNCH0972DDD9D%27
+Request: https://swarm.usd.lab.emc.com/api/types/poolStorageSystem/instances?per_page=100&filter=storagesystem%20eq%20%27FCNCH0972DDD9D%27
+0.02928
+{"entries":[{"pool":1078,"storagesystem":"FCNCH0972DDD9D","id":100850},{"pool":1022,"storagesystem":"FCNCH0972DDD9D","id":94917}],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/poolStorageSystem\/instances?filter=storagesystem+eq+'FCNCH0972DDD9D'&per_page=100","entryCount":2,"links":[{"rel":"first","href":"&page=1"},{"rel":"self","href":"&page=1"},{"rel":"last","href":"&page=1"}]}
+
+
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystemTag/instances?filter=storagesystem%20eq%20%27FCNCH0972DDD9D%27%20and%20active%20eq%20%271%27&per_page=100
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystemTag/instances?filter=storagesystem%20eq%20%27FCNCH0972DDD9D%27%20and%20active%20eq%20%271%27&per_page=100
+0.027233
+{"entries":[],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/storageSystemTag\/instances?filter=storagesystem+eq+'FCNCH0972DDD9D'+and+active+eq+'1'&per_page=100","entryCount":0,"links":[]}
+
+Request: https://swarm.usd.lab.emc.com/api/types/note/instances?per_page=100&filter=storagesystem%20eq%20%27FCNCH0972DDD9D%27
+Request: https://swarm.usd.lab.emc.com/api/types/note/instances?per_page=100&filter=storagesystem%20eq%20%27FCNCH0972DDD9D%27
+0.027372
+{"entries":[],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/note\/instances?filter=storagesystem+eq+'FCNCH0972DDD9D'&per_page=100","entryCount":0,"links":[]}
+
+
+Request: https://swarm.usd.lab.emc.com/api/types/ioport/instances?per_page=100
+Request: https://swarm.usd.lab.emc.com/api/types/ioport/instances?per_page=100
+0.024745
+{"entries":[{"name":"spa_eth2","id":1},{"name":"spa_eth3","id":2},{"name":"spa_eth4","id":3},{"name":"spa_eth5","id":4},{"name":"spa_eth10","id":5},{"name":"spa_eth11","id":6},{"name":"spa_eth12","id":7},{"name":"spa_eth13","id":8},{"name":"spa_eth20","id":9},{"name":"spa_eth21","id":10},{"name":"spa_eth22","id":11},{"name":"spa_eth23","id":12},{"name":"spb_eth2","id":13},{"name":"spb_eth3","id":14},{"name":"spb_eth4","id":15},{"name":"spb_eth5","id":16},{"name":"spb_eth10","id":17},{"name":"spb_eth11","id":18},{"name":"spb_eth12","id":19},{"name":"spb_eth13","id":20},{"name":"spb_eth20","id":21},{"name":"spb_eth21","id":22},{"name":"spb_eth22","id":23},{"name":"spb_eth23","id":24},{"name":"spa0_0","id":29},{"name":"spa0_1","id":30},{"name":"spa0_2","id":31},{"name":"spa0_3","id":32},{"name":"spa1_0","id":33},{"name":"spa1_1","id":34},{"name":"spa1_2","id":35},{"name":"spa1_3","id":36},{"name":"spa2_0","id":37},{"name":"spa2_1","id":38},{"name":"spa2_2","id":39},{"name":"spa2_3","id":40},{"name":"spa3_0","id":41},{"name":"spa3_1","id":42},{"name":"spa3_2","id":43},{"name":"spa3_3","id":44},{"name":"spa4_0","id":45},{"name":"spa4_1","id":46},{"name":"spa4_2","id":47},{"name":"spa4_3","id":48},{"name":"spa5_0","id":49},{"name":"spa5_1","id":50},{"name":"spa5_2","id":51},{"name":"spa5_3","id":52},{"name":"spa6_0","id":53},{"name":"spa6_1","id":54},{"name":"spa6_2","id":55},{"name":"spa6_3","id":56},{"name":"spa7_0","id":57},{"name":"spa7_1","id":58},{"name":"spa7_2","id":59},{"name":"spa7_3","id":60},{"name":"spa8_0","id":61},{"name":"spa8_1","id":62},{"name":"spa8_2","id":63},{"name":"spa8_3","id":64},{"name":"spa9_0","id":65},{"name":"spa9_1","id":66},{"name":"spa9_2","id":67},{"name":"spa9_3","id":68},{"name":"spa10_0","id":69},{"name":"spa10_1","id":70},{"name":"spa10_2","id":71},{"name":"spa10_3","id":72},{"name":"spb0_0","id":73},{"name":"spb0_1","id":74},{"name":"spb0_2","id":75},{"name":"spb0_3","id":76},{"name":"spb1_0","id":77},{"name":"spb1_1","id":78},{"name":"spb1_2","id":79},{"name":"spb1_3","id":80},{"name":"spb2_0","id":81},{"name":"spb2_1","id":82},{"name":"spb2_2","id":83},{"name":"spb2_3","id":84},{"name":"spb3_0","id":85},{"name":"spb3_1","id":86},{"name":"spb3_2","id":87},{"name":"spb3_3","id":88},{"name":"spb4_0","id":89},{"name":"spb4_1","id":90},{"name":"spb4_2","id":91},{"name":"spb4_3","id":92},{"name":"spb5_0","id":93},{"name":"spb5_1","id":94},{"name":"spb5_2","id":95},{"name":"spb5_3","id":96},{"name":"spb6_0","id":97},{"name":"spb6_1","id":98},{"name":"spb6_2","id":99},{"name":"spb6_3","id":100},{"name":"spb7_0","id":101},{"name":"spb7_1","id":102},{"name":"spb7_2","id":103},{"name":"spb7_3","id":104}],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/ioport\/instances?per_page=100","entryCount":124,"links":[{"rel":"first","href":"&page=1"},{"rel":"self","href":"&page=1"},{"rel":"next","href":"&page=2"},{"rel":"last","href":"&page=2"}]}
+
+
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystemIp/instances?fields=storagesystem%2Cipid%2Cinterfaceid%2Cioport&per_page=99999
+Request: https://swarm.usd.lab.emc.com/api/types/storageSystemIp/instances?fields=storagesystem%2Cipid%2Cinterfaceid%2Cioport&per_page=99999
+1.24137
+
+{
+    "entries": [
+        {
+            "ioport": null, 
+            "ipid": 621190, 
+            "storagesystem": "VIRT1825KZQLMC", 
+            "interfaceid": 16
+        }, 
+        {
+            "ioport": null, 
+            "ipid": 294349, 
+            "storagesystem": "APM00163503538", 
+            "interfaceid": 18
+        }, 
+        {
+            "ioport": null, 
+            "ipid": 674959, 
+            "storagesystem": "FCNWS183300002", 
+            "interfaceid": 57
+        }, 
+        {
+            "ioport": null, 
+            "ipid": 16947, 
+            "storagesystem": "FNM00152600235", 
+            "interfaceid": 27
+        }, 
+        {
+            "ioport": null, 
+            "ipid": 309314, 
+            "storagesystem": "FNM00150904751", 
+            "interfaceid": 28
+        }, 
+        {
+            "ioport": null, 
+            "ipid": 586922, 
+            "storagesystem": "FNM00152600013", 
+            "interfaceid": 30
+        }, 
+
+
+
+Request: https://swarm.usd.lab.emc.com/api/types/ip/instances?per_page=100&filter=id%20in%20%28298409%2C298411%2C298412%2C298413%2C298414%2C298416%2C298423%2C324495%29
+Request: https://swarm.usd.lab.emc.com/api/types/ip/instances?per_page=100&filter=id%20in%20%28298409%2C298411%2C298412%2C298413%2C298414%2C298416%2C298423%2C324495%29
+0.037082
+{"entries":[{"subnetid":292,"hostname":"bs-d9526mgmt.drm.lab.emc.com","address":"10.109.221.156","id":298409,"vlan":null,"mac":null},{"subnetid":292,"hostname":"bs-d9526spa.drm.lab.emc.com","address":"10.109.221.157","id":298411,"vlan":null,"mac":null},{"subnetid":292,"hostname":"bs-d9526spb0.drm.lab.emc.com","address":"10.109.221.161","id":298412,"vlan":null,"mac":null},{"subnetid":292,"hostname":"bs-d9526spa0.drm.lab.emc.com","address":"10.109.221.160","id":298413,"vlan":null,"mac":null},{"subnetid":292,"hostname":"bs-d9526dae.drm.lab.emc.com","address":"10.109.221.159","id":298414,"vlan":null,"mac":null},{"subnetid":292,"hostname":"bs-d9526spb.drm.lab.emc.com","address":"10.109.221.158","id":298416,"vlan":null,"mac":null},{"subnetid":null,"hostname":"Unable to determine hostname","address":"2620:0:170:75d8:260:1600:3c2d:dd9d","id":298423,"vlan":null,"mac":null},{"subnetid":749,"hostname":"usd-vserial.usd.lab.emc.com","address":"10.141.11.168","id":324495,"vlan":null,"mac":null}],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/ip\/instances?filter=id+in+(298409,298411,298412,298413,298414,298416,298423,324495)&per_page=100","entryCount":8,"links":[{"rel":"first","href":"&page=1"},{"rel":"self","href":"&page=1"},{"rel":"last","href":"&page=1"}]}
+
+
+
+Request: https://swarm.usd.lab.emc.com/api/types/interface/instances?per_page=100
+Request: https://swarm.usd.lab.emc.com/api/types/interface/instances?per_page=100
+0.025434
+{"entries":[{"name":"SPA","id":16},{"name":"SPB","id":17},{"name":"CS","id":18},{"name":"CSIP","id":19},{"name":"BMC","id":20},{"name":"BMCA","id":21},{"name":"BMCB","id":22},{"name":"CONSOLE","id":23},{"name":"TERMINAL","id":27},{"name":"REMPOWSUP","id":28},{"name":"MANAGEMENT","id":29},{"name":"IO","id":30},{"name":"CS1","id":31},{"name":"DNSSERVER","id":32},{"name":"NISSERVER","id":33},{"name":"NTPSERVER","id":34},{"name":"ADSERVER","id":35},{"name":"KVM","id":36},{"name":"DAE","id":37},{"name":"CS1-v6","id":39},{"name":"SPA-v6","id":40},{"name":"SPB-v6","id":41},{"name":"BMCA-v6","id":42},{"name":"BMCB-v6","id":43},{"name":"IO-v6","id":44},{"name":"MANAGEMENT-v6","id":45},{"name":"LAN","id":46},{"name":"LAN-v6","id":47},{"name":"WAN","id":48},{"name":"WAN-v6","id":49},{"name":"ISCSI1","id":50},{"name":"ISCSI1-v6","id":51},{"name":"ISCSI2","id":52},{"name":"ISCSI2-v6","id":53},{"name":"ESXA","id":54},{"name":"ESXB","id":55},{"name":"NODEA","id":56},{"name":"NODEB","id":57},{"name":"VCENTER","id":58},{"name":"VMMOTIONA","id":59},{"name":"VMMOTIONB","id":60},{"name":"DATAMOBILITYA","id":61},{"name":"DATAMOBILITYB","id":62},{"name":"APPVM","id":63},{"name":"APPLIANCE","id":64},{"name":"SRMA","id":65},{"name":"SRMB","id":66},{"name":"ESXA-v6","id":67},{"name":"ESXB-v6","id":68},{"name":"NODEA-v6","id":69},{"name":"NODEB-v6","id":70},{"name":"VCENTER-v6","id":71},{"name":"VMMOTIONA-v6","id":72},{"name":"VMMOTIONB-v6","id":73},{"name":"DATAMOBILITYA-v6","id":74},{"name":"DATAMOBILITYB-v6","id":75},{"name":"APPVM-v6","id":76},{"name":"APPLIANCE-v6","id":77},{"name":"CS-v6","id":78}],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/interface\/instances?per_page=100","entryCount":59,"links":[{"rel":"first","href":"&page=1"},{"rel":"self","href":"&page=1"},{"rel":"last","href":"&page=1"}]}
+
+
+Request: https://swarm.usd.lab.emc.com/api/types/state/instances?per_page=100
+Request: https://swarm.usd.lab.emc.com/api/types/state/instances?per_page=100
+0.029234
+{"entries":[{"equipmenttype":1,"active":1,"name":"In service","id":1,"description":"Ready for use"},{"equipmenttype":1,"active":1,"name":"Out of Service:AR","id":3,"description":"Cannot be used."},{"equipmenttype":2,"active":1,"name":"In service","id":9,"description":"Ready for use"},{"equipmenttype":2,"active":1,"name":"Out of Service:AR","id":11,"description":"Cannot be used."},{"equipmenttype":1,"active":1,"name":"Out of Service:ESM","id":23,"description":"Out of Service:ESM"},{"equipmenttype":1,"active":0,"name":"Out of Service:Other","id":5,"description":"Cannot be used."},{"equipmenttype":1,"active":0,"name":"Out of Service:Config","id":6,"description":"Cannot be used."},{"equipmenttype":1,"active":0,"name":"Out of Service:NDU","id":7,"description":"Cannot be used."},{"equipmenttype":1,"active":0,"name":"Out of Service:ICA","id":8,"description":"Cannot be used."},{"equipmenttype":2,"active":0,"name":"Out of Service:OPT","id":12,"description":"Cannot be used."},{"equipmenttype":2,"active":0,"name":"Out of Service:Other","id":13,"description":"Cannot be used."},{"equipmenttype":2,"active":0,"name":"Out of Service:Config","id":14,"description":"Cannot be used."},{"equipmenttype":2,"active":0,"name":"Out of Service:NDU","id":15,"description":"Cannot be used."},{"equipmenttype":2,"active":0,"name":"Out of Service:ICA","id":16,"description":"Cannot be used."},{"equipmenttype":1,"active":1,"name":"Pending Return","id":18,"description":"Pending to be returned"},{"equipmenttype":1,"active":1,"name":"Pending Rotation","id":19,"description":"Pending to be rotated"},{"equipmenttype":1,"active":1,"name":"In Transit","id":20,"description":"Storage system in transit"},{"equipmenttype":1,"active":1,"name":"Staging","id":17,"description":"Storage system in staging state"},{"equipmenttype":1,"active":1,"name":"Out of Service:OPT","id":21,"description":"Out of Service:OPT"},{"equipmenttype":1,"active":1,"name":"Out of Service:VSM Ticket","id":22,"description":"Out of Service:VSM Ticket"},{"equipmenttype":2,"active":1,"name":"Out of Service:ESM","id":24,"description":"Out of Service:ESM"},{"equipmenttype":1,"active":0,"name":"Out of Service:Labman","id":2,"description":"Cannot be used."},{"equipmenttype":2,"active":0,"name":"Out of Service:Labman","id":10,"description":"Cannot be used."}],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/state\/instances?per_page=100","entryCount":23,"links":[{"rel":"first","href":"&page=1"},{"rel":"self","href":"&page=1"},{"rel":"last","href":"&page=1"}]}
+
+
+Request: https://swarm.usd.lab.emc.com/api/types/pool/instances?per_page=99999
+Request: https://swarm.usd.lab.emc.com/api/types/pool/instances?per_page=99999
+{"entries":[{"name":"SPEC sfs","id":1164},{"name":"Trident Data Mobility","id":1243},{"name":"PI-Product Integration Engineering","id":1046},{"name":"MRES Unused Servers","id":1008},{"name":"MRQE Shared Hosts","id":825},{"name":"MRES Unused VMs","id":1006},{"name":"Security QE","id":1217},{"name":"IS-Infrastructure Services","id":1001},{"name":"SPE FY19 Q3 Returns","id":1193},{"name":"DevOps System Integration","id":1153},{"name":"AdvTech","id":667},{"name":"MRES Nighthawk Arrays","id":1198},{"name":"MRQE Automation Dev","id":1018},{"name":"Trident Platform SW","id":1244},{"name":"CSE 2017Q2 Returns 05-15","id":1054},{"name":"Public","id":1},{"name":"US-Unity Shared","id":679},{"name":"DP-Data Path - Jenkins","id":1081},{"name":"DevOps TAE","id":1200},{"name":"DP-File Performance","id":1132},{"name":"Build VMs","id":1134},{"name":"EMSD SSO Durham Cloud UCS Infrastructure","id":586},{"name":"Cloud Application","id":988},{"name":"IMD Cyclone","id":1135},{"name":"Test Complete Public Durham","id":686},{"name":"MRQE Customer Emulation","id":1028},{"name":"Global Public Pool","id":0},{"name":"TCEE Hosts","id":691},{"name":"MRQE ESRS Staging","id":1029},{"name":"EE Hosts","id":700},{"name":"EMSD SSO RTP Cloud UCS Infrastructure","id":588},{"name":"cyc-platform","id":923},{"name":"SPE Problem Equipment","id":1201},{"name":"SPE Unity Eng Data Path BJ","id":1202},{"name":"Bernero NoPool","id":1011},{"name":"Cyclone Kylin\/QuantaPlex","id":1148},{"name":"SP-SLICs Protocols & Backend","id":1068},{"name":"CPV Trident CTC","id":1181},{"name":"SPE Unity Eng IS","id":1205},{"name":"SPE Unity Eng Share","id":1207},{"name":"EOS2 ICA Station Arrays - 228 Hop","id":1036},{"name":"MRQE Data Mobility","id":1058},{"name":"SPE Unity Eng SSE","id":1208},{"name":"Spiewak NoPools","id":1037},{"name":"DevOps CEV China","id":1209},{"name":"MRES MDC","id":1102},{"name":"EOS2 Infrastructure Arrays - 228 Hop","id":1040},{"name":"DevOps CFT - Trident","id":1150},{"name":"IDD Equipment","id":1043},{"name":"DevOps CFT - Unity","id":1210},{"name":"DP-File Test Dev","id":1020},{"name":"DevOps CIT - Trident","id":1047},{"name":"Common Platform","id":1066},{"name":"PC-Core Platform","id":1067},{"name":"Unity Automation Regression","id":1186},{"name":"PSI-Platform Subsystem Integration","id":1070},{"name":"CBO PT Core","id":662},{"name":"IMT Shared Legacy","id":1064},{"name":"DevOps Performance","id":1213},{"name":"IMT Shared VNX2","id":1059},{"name":"CBO Customer Performance","id":1161},{"name":"MRQE Admin Equipment","id":580},{"name":"VNX EE","id":375},{"name":"DP-Data Path","id":1078},{"name":"DP-Data Path - Network Config","id":1077},{"name":"IMD VNX2","id":1084},{"name":"IMD Unity","id":1086},{"name":"IMD VNXe","id":1087},{"name":"IMD Other","id":1089},{"name":"MSSE Unity","id":1083},{"name":"MSSE VNX2","id":1090},{"name":"Tech Solutions","id":1214},{"name":"CSE Performance","id":663},{"name":"MSSE Cust Escalation Perf","id":1113},{"name":"Test Complete Public Hopkinton","id":687},{"name":"MSSE Stoneham","id":1114},{"name":"MSSE Stolyar","id":1115},{"name":"MSSE Sthalekar","id":1116},{"name":"MSSE Shared","id":1117},{"name":"CloudIQ","id":1215},{"name":"IMT Protocols","id":1119},{"name":"DevOps Admin","id":1120},{"name":"Trident Chief Architect","id":1169},{"name":"MSSE - Sandbox Pool","id":659},{"name":"Trident Performance Analysis","id":1218},{"name":"Unity 25GbE OB Arrays","id":1245},{"name":"DevOps Release Engineering","id":1044},{"name":"DevOps Smoke","id":1144},{"name":"Trident SDNAS","id":1219},{"name":"CBO (All)","id":1165},{"name":"Trident Data Path","id":1157},{"name":"Trident QE","id":1240},{"name":"MSSE Failover Performance","id":1241},{"name":"Trident System Architect","id":1224},{"name":"Trident QE Performance","id":1226},{"name":"MRES Osprey Arrays","id":1170},{"name":"MRES 2018Q2 Returns","id":1171},{"name":"Trident PMT","id":1176},{"name":"Trident QE Connectivity","id":1229},{"name":"Trident Serviceability","id":1162},{"name":"Trident QE Application","id":1232},{"name":"MRES Trident Unity Product Ops","id":1168},{"name":"Trident Imaging","id":1188},{"name":"CPV Trident","id":1178},{"name":"CPV Loan Outs","id":1182},{"name":"Trident Security","id":1184},{"name":"Trident QE Control Path","id":1236},{"name":"DevOps CEV","id":1189},{"name":"DevOps CITaaS - Unity","id":1246},{"name":"Trident Microsemi","id":1191},{"name":"Trident QE Core HW","id":1233},{"name":"Trident QE Core Install\/FRU","id":1234},{"name":"Trident Pgm","id":1239},{"name":"SPE Reallocation Arrays","id":1242},{"name":"DevOps CITaaS - Trident","id":1177},{"name":"Trident Control Path IL","id":1247},{"name":"SDNAS Core","id":1249},{"name":"SPE FY19 Q4 Returns","id":1250},{"name":"Trident Platform Core","id":1251},{"name":"CACTUS","id":990},{"name":"DP-File Foundation","id":1021},{"name":"CPV Trident Shenzhou","id":1179},{"name":"MRES BU Shared","id":583},{"name":"SPE Unity Eng Data Path SH","id":1203},{"name":"SPE Unity Eng Platform","id":1206},{"name":"DevOps CIT - Unity","id":1211},{"name":"MRQE Architects","id":708},{"name":"MRES Unused Recoverpoint","id":1009},{"name":"IME Admin","id":1131},{"name":"Destination Trident","id":1220},{"name":"MRQE Unused Equipment","id":730},{"name":"CPV Trident Install & Config","id":1222},{"name":"DP-File Limits","id":1133},{"name":"DevOps EST","id":1151},{"name":"PS-Platform Services","id":460},{"name":"Trident Appliance Opt","id":1225},{"name":"MRQE Shared vVNX","id":704},{"name":"CI-Client Interoperability","id":469},{"name":"Performance Testing","id":1160},{"name":"VI-Virtualization","id":472},{"name":"IMT Shared VNXe2","id":1060},{"name":"Trident QE Endurance","id":1227},{"name":"Trident QE Scale","id":1230},{"name":"Trident Control Path","id":1158},{"name":"Trident QE Core HA","id":1237},{"name":"Trident QE Core NDU","id":1238},{"name":"MRQE ESRS Production","id":1030},{"name":"IMT Unity","id":1061},{"name":"KH-CTO","id":497},{"name":"Trident Data Path IL","id":1248},{"name":"DP-Data Path - Block","id":1079},{"name":"CAE Destination Trident","id":1156},{"name":"IMD VNX","id":1085},{"name":"Test Complete Public","id":581},{"name":"Unity Admin","id":1192},{"name":"EMSD SSO Durham Cloud Shared Physical Servers","id":587},{"name":"TCEE India Team Simulators","id":529},{"name":"Cork EOS2 IDO","id":798},{"name":"NPE-VNX","id":566},{"name":"MRQE MBU Test Arrays","id":797},{"name":"PL-PS-SRS-Test Pool","id":840},{"name":"MRQE No Lab","id":881},{"name":"MSSE - Global KH","id":883},{"name":"MSSE - CTA","id":481},{"name":"Performance Test Runs","id":966},{"name":"CPO Office AAAS","id":967},{"name":"CPV Trident Xian","id":1180},{"name":"MRQE HSI","id":900},{"name":"SPE Unity Eng DM","id":1204},{"name":"DevOps CTEE - Trident","id":1152},{"name":"DevOps CTEE - Unity","id":1212},{"name":"DP-File Services","id":1022},{"name":"MRES Unused Arrays","id":1010},{"name":"DM-Data Mobility CACTUS","id":911},{"name":"Trident Platform QE","id":1223},{"name":"Trident QE ScaleDM","id":1228},{"name":"Trident QE IOP","id":1231},{"name":"EOS2 ICA Station Arrays - RTP","id":916},{"name":"EOS2 Production Storage Arrays - Durham","id":915},{"name":"EOS2 Production Storage Arrays - RTP","id":918},{"name":"EOS2 ICA Station Arrays - Durham","id":917},{"name":"Trident QE Core Data Path","id":1235},{"name":"DevOps CICD Sandbox","id":991},{"name":"DP-Data Path - Block CACTUS","id":1080},{"name":"IMD VNXe2","id":1088},{"name":"CACTUS IMT","id":992}],"baseURL":"https:\/\/swarm.usd.lab.emc.com\/api\/types\/pool\/instances?per_page=99999","entryCount":186,"links":[{"rel":"first","href":"&page=1"},{"rel":"self","href":"&page=1"},{"rel":"last","href":"&page=1"}]}
+
+
+
+
+
+
+cpprest
