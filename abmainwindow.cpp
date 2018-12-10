@@ -122,13 +122,17 @@ void ABMainWindow::createDataMap()
             );
 }
 
+void ABMainWindow::createFindDelegate()
+{
+    connect(ui->lineEdit, &QLineEdit::textChanged, this, &ABMainWindow::findStringProcess);
+    ui->lineEdit->setClearButtonEnabled(true);
+}
+
 bool ABMainWindow::init()
 {
     createMenu();
     createToolbar();
-
-    connect(ui->lineEdit, &QLineEdit::textChanged, this, &ABMainWindow::findStringProcess);
-    ui->lineEdit->setClearButtonEnabled(true);
+    createFindDelegate();
 
     QSqlError err = databaseInit();
     if (err.type() != QSqlError::NoError) {
