@@ -45,13 +45,24 @@
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <pointsize>7</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>Find:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit"/>
+          <widget class="QLineEdit" name="lineEdit">
+           <property name="font">
+            <font>
+             <pointsize>7</pointsize>
+            </font>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -145,6 +156,11 @@
           <layout class="QFormLayout" name="formLayout_2">
            <item row="0" column="0">
             <widget class="QLabel" name="nameLabel">
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Name:</string>
              </property>
@@ -161,6 +177,11 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>false</bool>
              </property>
@@ -168,6 +189,11 @@
            </item>
            <item row="1" column="0">
             <widget class="QLabel" name="modelLabel">
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Model:</string>
              </property>
@@ -178,6 +204,11 @@
              <property name="enabled">
               <bool>true</bool>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -185,6 +216,11 @@
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="iOIPsLabel">
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>I/O IPs</string>
              </property>
@@ -192,6 +228,11 @@
            </item>
            <item row="3" column="0">
             <widget class="QLabel" name="serialLabel">
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Serial:</string>
              </property>
@@ -202,34 +243,18 @@
              <property name="enabled">
               <bool>true</bool>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QListView" name="listView">
-             <property name="font">
-              <font>
-               <pointsize>7</pointsize>
-              </font>
-             </property>
-             <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
-             </property>
-             <property name="alternatingRowColors">
-              <bool>true</bool>
-             </property>
-             <property name="selectionMode">
-              <enum>QAbstractItemView::SingleSelection</enum>
-             </property>
-             <property name="selectionBehavior">
-              <enum>QAbstractItemView::SelectRows</enum>
-             </property>
-             <property name="layoutMode">
-              <enum>QListView::SinglePass</enum>
-             </property>
-            </widget>
+            <widget class="QComboBox" name="iOIPsComboBox"/>
            </item>
           </layout>
          </item>
@@ -253,6 +278,11 @@
           <layout class="QFormLayout" name="formLayout_5">
            <item row="0" column="0">
             <widget class="QLabel" name="mgmtIPLabel">
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Mgmt IP:</string>
              </property>
@@ -263,6 +293,11 @@
              <property name="enabled">
               <bool>true</bool>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -270,6 +305,11 @@
            </item>
            <item row="1" column="0">
             <widget class="QLabel" name="labIPSPALabel">
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Lab IP SPA:</string>
              </property>
@@ -280,6 +320,11 @@
              <property name="enabled">
               <bool>true</bool>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -287,6 +332,11 @@
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="labIPSPBLabel">
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Lab IP SPB:</string>
              </property>
@@ -297,6 +347,11 @@
              <property name="enabled">
               <bool>true</bool>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -304,6 +359,11 @@
            </item>
            <item row="3" column="0">
             <widget class="QLabel" name="typeLabel">
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Type:</string>
              </property>
@@ -313,6 +373,11 @@
             <widget class="QLineEdit" name="typeLineEdit">
              <property name="enabled">
               <bool>true</bool>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -341,6 +406,11 @@
           <layout class="QFormLayout" name="formLayout_4">
            <item row="0" column="0">
             <widget class="QLabel" name="versionLabel">
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Version:</string>
              </property>
@@ -351,6 +421,11 @@
              <property name="enabled">
               <bool>true</bool>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -358,6 +433,11 @@
            </item>
            <item row="1" column="0">
             <widget class="QLabel" name="terminalSPALabel">
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Terminal SPA:</string>
              </property>
@@ -368,6 +448,11 @@
              <property name="enabled">
               <bool>true</bool>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -375,6 +460,11 @@
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="terminalSPBLabel">
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
+             </property>
              <property name="text">
               <string>Terminal SPB:</string>
              </property>
@@ -384,6 +474,11 @@
             <widget class="QLineEdit" name="terminalSPBLineEdit">
              <property name="enabled">
               <bool>true</bool>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>7</pointsize>
+              </font>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -407,7 +502,7 @@
          <item>
           <widget class="QPushButton" name="pushButton_3">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>

@@ -125,7 +125,7 @@ bool ABMainWindow::init()
     mapper_->addMapping(ui->terminalSPBLineEdit, model->fieldIndex("terminalspbip"));
     mapper_->addMapping(ui->serialLineEdit, model->fieldIndex("serial"));
     mapper_->addMapping(ui->typeLineEdit, model->fieldIndex("type"));
-    mapper_->addMapping(ui->listView, model->fieldIndex("ioips"));
+    mapper_->addMapping(ui->iOIPsComboBox, model->fieldIndex("ioips"));
 
     connect(ui->tableView->selectionModel(),
             &QItemSelectionModel::currentRowChanged,
@@ -148,6 +148,14 @@ void ABMainWindow::findStringProcess(const QString& s)
 void ABMainWindow::currentRowChangedProcess(const QModelIndex &current, const QModelIndex &previous)
 {
     mapper_->setCurrentIndex(current.row());
+
+    QSqlRelationalTableModel* model = databaseModel_->getDatabaseModel();
+    QModelIndex ioipModel = model->index(current.row(),model->fieldIndex("ioips"));
+
+    QString srcStr = ioipModel.data().toString();
+    QStringList ioipList = srcStr.split(',', QString::SkipEmptyParts);
+    ui->iOIPsComboBox->clear();
+    ui->iOIPsComboBox->addItems(ioipList);
 
 }
 

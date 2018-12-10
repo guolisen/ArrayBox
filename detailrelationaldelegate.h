@@ -5,7 +5,6 @@
 #include <QSqlRelationalTableModel>
 #include <QSqlRelationalDelegate>
 
-class QStandardItemModel;
 class DetailRelationalDelegate : public QItemDelegate
 {
     //Q_OBJECT
@@ -21,7 +20,6 @@ public:
     void setEditorData(QWidget *editor, const QModelIndex &index) const override;
 private:
     QSqlRelationalTableModel* model_;
-    QStandardItemModel* listViewModel_;
 };
 
 #endif // DETAILRELATIONALDELEGATE_H
