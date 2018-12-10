@@ -29,16 +29,28 @@ SOURCES += \
         abmainwindow.cpp \
     arraydatabasemodel.cpp \
     sortfilterproxymodel.cpp \
-    detailrelationaldelegate.cpp
+    detailrelationaldelegate.cpp \
+    abmainwindow.cpp \
+    arraydatabasemodel.cpp \
+    detailrelationaldelegate.cpp \
+    main.cpp \
+    sortfilterproxymodel.cpp \
+    swarm/swarmtools.cpp
 
 HEADERS += \
         abmainwindow.h \
     arraydatabasemodel.h \
     sortfilterproxymodel.h \
-    detailrelationaldelegate.h
+    detailrelationaldelegate.h \
+    abmainwindow.h \
+    arraydatabasemodel.h \
+    detailrelationaldelegate.h \
+    sortfilterproxymodel.h \
+    swarm/swarmtools.h
 
 FORMS += \
-        abmainwindow.ui
+        abmainwindow.ui \
+    swarmfinddialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

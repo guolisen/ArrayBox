@@ -1,6 +1,7 @@
 #include <QComboBox>
 #include "abmainwindow.h"
 #include "ui_abmainwindow.h"
+#include "ui_swarmfinddialog.h"
 #include "arraydatabasemodel.h"
 #include "sortfilterproxymodel.h"
 #include "detailrelationaldelegate.h"
@@ -11,8 +12,6 @@ ABMainWindow::ABMainWindow(QWidget *parent) :
     databaseModel_(std::make_shared<ArrayDatabaseModel>())
 {
     ui->setupUi(this);
-    connect(ui->lineEdit, &QLineEdit::textChanged, this, &ABMainWindow::findStringProcess);
-
 }
 
 void ABMainWindow::showError(const QSqlError &err)
@@ -22,7 +21,6 @@ void ABMainWindow::showError(const QSqlError &err)
 
 ABMainWindow::~ABMainWindow()
 {
-
     delete ui;
 }
 
@@ -79,6 +77,8 @@ void ABMainWindow::tableViewInit()
     {
         ui->tableView->setColumnWidth(i, ui->tableView->columnWidth(i) + 10);  //多一些空余控件，不然每列内容很挤
     }
+
+    //ui->tableView->setCurrentIndex(databaseModel_->getDatabaseModel()->index(0, 0));
 }
 
 QSqlError ABMainWindow::databaseInit()
@@ -97,20 +97,8 @@ QSqlError ABMainWindow::databaseInit()
     return QSqlError();
 }
 
-bool ABMainWindow::init()
+void ABMainWindow::createDataMap()
 {
-    //ui->splitter->setSizes(QList<int>({INT_MAX, INT_MAX}));
-    createMenu();
-    createToolbar();
-
-    QSqlError err = databaseInit();
-    if (err.type() != QSqlError::NoError) {
-        showError(err);
-        return false;
-    }
-
-    tableViewInit();
-
     QSqlRelationalTableModel* model = databaseModel_->getDatabaseModel();
     mapper_ = new QDataWidgetMapper(this);
     mapper_->setModel(model);
@@ -132,8 +120,25 @@ bool ABMainWindow::init()
             this,
             &ABMainWindow::currentRowChangedProcess
             );
+}
 
-    //ui->tableView->setCurrentIndex(databaseModel_->getDatabaseModel()->index(0, 0));
+bool ABMainWindow::init()
+{
+    createMenu();
+    createToolbar();
+
+    connect(ui->lineEdit, &QLineEdit::textChanged, this, &ABMainWindow::findStringProcess);
+    ui->lineEdit->setClearButtonEnabled(true);
+
+    QSqlError err = databaseInit();
+    if (err.type() != QSqlError::NoError) {
+        showError(err);
+        return false;
+    }
+
+    tableViewInit();
+    createDataMap();
+
     statusBar()->showMessage(tr("Ready"));
     return true;
 }
@@ -156,7 +161,6 @@ void ABMainWindow::currentRowChangedProcess(const QModelIndex &current, const QM
     QStringList ioipList = srcStr.split(',', QString::SkipEmptyParts);
     ui->iOIPsComboBox->clear();
     ui->iOIPsComboBox->addItems(ioipList);
-
 }
 
 void ABMainWindow::createMenu()
@@ -196,7 +200,13 @@ void ABMainWindow::about()
 
 void ABMainWindow::insterFromSwarm()
 {
-    QMessageBox::about(this, tr("About DeviceBox"),
-            tr("Just a Test!"
-               "with a model/view framework."));
+    QDialog swarmDialog;
+    Ui::Dialog ui;
+    ui.setupUi(&swarmDialog);
+    swarmDialog.adjustSize();
+
+    if (swarmDialog.exec() != QDialog::Accepted)
+        return;
+
+    QString searchStr = ui.lineEdit->text();
 }

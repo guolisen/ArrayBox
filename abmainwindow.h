@@ -40,6 +40,7 @@ private:
     SortFilterProxyModel* proxyModel_;
     std::shared_ptr<ArrayDatabaseModel> databaseModel_;
     QDataWidgetMapper* mapper_;
+    void createDataMap();
 };
 
 #endif // ABMAINWINDOW_H
