@@ -41,6 +41,7 @@ private:
     std::shared_ptr<ArrayDatabaseModel> databaseModel_;
     QDataWidgetMapper* mapper_;
     void createDataMap();
+    void createFindDelegate();
 };
 
 #endif // ABMAINWINDOW_H
