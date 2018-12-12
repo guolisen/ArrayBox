@@ -2,14 +2,19 @@
 #define SWARMTOOLS_H
 
 #include "iswarmtools.h"
+#include "iwebrequestadapter.h"
 
 namespace swarm
 {
 class SwarmTools: public ISwarmTools
 {
 public:
-    SwarmTools();
+    SwarmTools(WebRequestAdapterPtr webAdapter):
+        webAdapter_(webAdapter){}
     virtual ~SwarmTools(){}
+
+private:
+    WebRequestAdapterPtr webAdapter_;
 };
 }
 

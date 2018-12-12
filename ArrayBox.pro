@@ -23,6 +23,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 CONFIG += c++11
+#QMAKE_CXXFLAGS += -Wweak-vtables
 
 SOURCES += \
     main.cpp \
@@ -46,8 +47,8 @@ HEADERS += \
     swarm/iswarmtools.h \
     swarm/iswarm.h \
     swarm/swarmimpl.h \
-    swarm/iwebrequestadapter.h \
-    swarm/webrequestadapter.h
+    swarm/webrequestadapter.h \
+    swarm/iwebrequestadapter.h
 
 FORMS += \
         abmainwindow.ui \

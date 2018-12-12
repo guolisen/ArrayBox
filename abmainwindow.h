@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <QMainWindow>
+#include "swarm/iswarm.h"
 
 namespace Ui {
 class ABMainWindow;
@@ -19,7 +20,7 @@ class ABMainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit ABMainWindow(QWidget *parent = nullptr);
+    ABMainWindow(QWidget *parent, swarm::SwarmPtr swarm);
     ~ABMainWindow();
 
     bool init();
@@ -32,17 +33,17 @@ private slots:
 private:
     void createMenu();
     void createToolbar();
+    void createDataMap();
+    void createFindDelegate();
     void tableViewInit();
     QSqlError databaseInit();
     void showError(const QSqlError &err);
-    void createDataMap();
-    void createFindDelegate();
 
     Ui::ABMainWindow *ui;
     SortFilterProxyModel* proxyModel_;
     std::shared_ptr<ArrayDatabaseModel> databaseModel_;
     QDataWidgetMapper* mapper_;
-
+    swarm::SwarmPtr swarm_;
 };
 
 #endif // ABMAINWINDOW_H

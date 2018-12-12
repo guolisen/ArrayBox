@@ -3,7 +3,7 @@
 namespace swarm {
 
 
-SwarmInfoPtr search(const std::string& targetStr)
+SwarmInfoPtr SwarmImpl::search(const std::string& targetStr)
 {
    return SwarmInfoPtr();
 }

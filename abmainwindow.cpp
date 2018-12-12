@@ -7,10 +7,11 @@
 #include "sortfilterproxymodel.h"
 #include "detailrelationaldelegate.h"
 
-ABMainWindow::ABMainWindow(QWidget *parent) :
+ABMainWindow::ABMainWindow(QWidget *parent, swarm::SwarmPtr swarm) :
     QMainWindow(parent),
     ui(new Ui::ABMainWindow),
-    databaseModel_(std::make_shared<ArrayDatabaseModel>())
+    databaseModel_(std::make_shared<ArrayDatabaseModel>()),
+    swarm_(swarm)
 {
     ui->setupUi(this);
 }
@@ -131,6 +132,7 @@ void ABMainWindow::createFindDelegate()
 
 bool ABMainWindow::init()
 {
+    swarm::SwarmInfoPtr info = swarm_->search("bs-d9526");
     createMenu();
     createToolbar();
     createFindDelegate();
