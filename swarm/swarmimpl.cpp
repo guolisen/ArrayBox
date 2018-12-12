@@ -6,5 +6,10 @@ SwarmImpl::SwarmImpl()
 {
 
 }
+#if 0
+bool SwarmImpl::search()
+{
 
+}
+#endif
 } // namespace swarm

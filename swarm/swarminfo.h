@@ -9,6 +9,15 @@ class SwarmInfo : public ISwarmInfo
 {
 public:
     SwarmInfo();
+    virtual ~SwarmInfo(){}
 };
+
+class SwarmInfoFactory : public ISwarmInfoFactory
+{
+public:
+    virtual ~SwarmInfoFactory(){}
+    SwarmInfoPtr createSwarmInfo();
+};
+
 }
 #endif // SWARMINFO_H

@@ -1,6 +1,7 @@
 #ifndef ISWARMTOOLS_H
 #define ISWARMTOOLS_H
 
+#include <memory>
 #include <string>
 
 namespace swarm {
@@ -12,6 +13,8 @@ public:
 
 
 };
+
+typedef std::shared_ptr<ISwarmTools> SwarmToolsPtr;
 
 }
 

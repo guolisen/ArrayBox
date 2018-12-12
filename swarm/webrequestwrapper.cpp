@@ -1,9 +1,9 @@
-#include "webrequestwrapper.h"
+#include "webrequestadapter.h"
 
 
 namespace swarm
 {
-WebRequestWrapper::WebRequestWrapper()
+WebRequestAdapter::WebRequestAdapter()
 {
 
 }

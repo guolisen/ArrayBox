@@ -9,8 +9,7 @@ class SwarmTools: public ISwarmTools
 {
 public:
     SwarmTools();
-
-
+    virtual ~SwarmTools(){}
 };
 }
 

@@ -1,6 +1,8 @@
 #ifndef ISWARM_H
 #define ISWARM_H
 
+#include <memory>
+
 namespace swarm {
 
 class ISwarm {
@@ -9,10 +11,11 @@ public:
 
     virtual bool search() = 0;
 
-    virtual bool getField() = 0;
-    virtual bool searchByName() = 0;
-    virtual bool searchByIp() = 0;
+
+    //virtual bool getField() = 0;
 };
+
+typedef std::shared_ptr<ISwarm> SwarmPtr;
 
 }
 
