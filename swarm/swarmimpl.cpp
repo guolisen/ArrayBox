@@ -2,14 +2,10 @@
 
 namespace swarm {
 
-SwarmImpl::SwarmImpl()
-{
 
-}
-#if 0
-bool SwarmImpl::search()
+SwarmInfoPtr search(const std::string& targetStr)
 {
-
+   return SwarmInfoPtr();
 }
-#endif
+
 } // namespace swarm

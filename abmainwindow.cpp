@@ -1,3 +1,4 @@
+#include <memory>
 #include <QComboBox>
 #include "abmainwindow.h"
 #include "ui_abmainwindow.h"

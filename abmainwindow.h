@@ -35,13 +35,14 @@ private:
     void tableViewInit();
     QSqlError databaseInit();
     void showError(const QSqlError &err);
+    void createDataMap();
+    void createFindDelegate();
 
     Ui::ABMainWindow *ui;
     SortFilterProxyModel* proxyModel_;
     std::shared_ptr<ArrayDatabaseModel> databaseModel_;
     QDataWidgetMapper* mapper_;
-    void createDataMap();
-    void createFindDelegate();
+
 };
 
 #endif // ABMAINWINDOW_H

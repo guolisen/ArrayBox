@@ -25,38 +25,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        main.cpp \
-        abmainwindow.cpp \
+    main.cpp \
     arraydatabasemodel.cpp \
     sortfilterproxymodel.cpp \
     detailrelationaldelegate.cpp \
     abmainwindow.cpp \
-    arraydatabasemodel.cpp \
-    detailrelationaldelegate.cpp \
-    main.cpp \
-    sortfilterproxymodel.cpp \
     swarm/swarmtools.cpp \
     swarm/swarminfo.cpp \
     swarm/webrequestwrapper.cpp \
     swarm/swarmimpl.cpp
 
 HEADERS += \
-        abmainwindow.h \
-    arraydatabasemodel.h \
-    sortfilterproxymodel.h \
-    detailrelationaldelegate.h \
     abmainwindow.h \
     arraydatabasemodel.h \
-    detailrelationaldelegate.h \
     sortfilterproxymodel.h \
+    detailrelationaldelegate.h \
     swarm/iswarminfo.h \
     swarm/swarminfo.h \
-    swarm/iwebrequestwrapper.h \
-    swarm/webrequestwrapper.h \
     swarm/swarmtools.h \
     swarm/iswarmtools.h \
     swarm/iswarm.h \
-    swarm/swarmimpl.h
+    swarm/swarmimpl.h \
+    swarm/iwebrequestadapter.h \
+    swarm/webrequestadapter.h
 
 FORMS += \
         abmainwindow.ui \

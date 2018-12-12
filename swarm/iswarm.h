@@ -2,14 +2,14 @@
 #define ISWARM_H
 
 #include <memory>
-
+#include "iswarminfo.h"
 namespace swarm {
 
 class ISwarm {
 public:
     virtual ~ISwarm(){}
 
-    virtual bool search() = 0;
+    virtual SwarmInfoPtr search(const std::string& targetStr) = 0;
 
 
     //virtual bool getField() = 0;
