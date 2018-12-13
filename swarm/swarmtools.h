@@ -9,12 +9,14 @@ namespace swarm
 class SwarmTools: public ISwarmTools
 {
 public:
-    SwarmTools(WebRequestAdapterPtr webAdapter):
-        webAdapter_(webAdapter){}
+    explicit SwarmTools(IWebRequestAdapter::Factory webAdapterFactory):
+        webAdapterFactory_(webAdapterFactory){}
     virtual ~SwarmTools(){}
 
+    virtual bool request() override;
+    virtual void resultFunction(bool, std::string);
 private:
-    WebRequestAdapterPtr webAdapter_;
+    IWebRequestAdapter::Factory webAdapterFactory_;
 };
 }
 

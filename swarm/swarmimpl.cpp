@@ -5,7 +5,8 @@ namespace swarm {
 
 SwarmInfoPtr SwarmImpl::search(const std::string& targetStr)
 {
-   return SwarmInfoPtr();
+    swarmTools_->request();
+    return SwarmInfoPtr();
 }
 
 } // namespace swarm

@@ -11,7 +11,7 @@ class ISwarmTools
 public:
     virtual ~ISwarmTools(){}
 
-
+    virtual bool request() = 0;
 };
 
 typedef std::shared_ptr<ISwarmTools> SwarmToolsPtr;
