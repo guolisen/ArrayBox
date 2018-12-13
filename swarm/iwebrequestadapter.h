@@ -7,7 +7,7 @@
 
 namespace swarm
 {
-typedef std::function<void(bool, std::string)> ResultFunc;
+typedef std::function<void(bool, const std::string&)> ResultFunc;
 
 class IWebRequestAdapter
 {

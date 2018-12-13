@@ -18,7 +18,6 @@ class DetailRelationalDelegate;
 class ABMainWindow : public QMainWindow
 {
     Q_OBJECT
-
 public:
     ABMainWindow(QWidget *parent, swarm::SwarmPtr swarm);
     ~ABMainWindow();

@@ -1,19 +1,20 @@
 #ifndef WEBREQUESTWRAPPER_H
 #define WEBREQUESTWRAPPER_H
 
+#include <memory>
 #include "iwebrequestadapter.h"
+#include <QNetworkAccessManager>
 
 class QNetworkAccessManager;
 class QNetworkReply;
-
 namespace swarm
 {
 
-class WebRequestAdapter : public IWebRequestAdapter
+class WebRequestAdapter : public QObject, public IWebRequestAdapter
 {
+    Q_OBJECT
 public:
-    explicit WebRequestAdapter(ResultFunc resFunc):
-        resFunc_(resFunc){}
+    explicit WebRequestAdapter(ResultFunc resFunc);
     virtual ~WebRequestAdapter(){}
     static WebRequestAdapterPtr createWebRequest(ResultFunc resultFunc)
     {
@@ -22,8 +23,11 @@ public:
 
     virtual bool startRequest(std::string url) override;
 
+private slots:
+    void finished();
+
 private:
-    QNetworkAccessManager* networkAccessMgr_;
+    QNetworkAccessManager networkAccessMgr_;
     QNetworkReply* reply_;
     ResultFunc resFunc_;
 };
