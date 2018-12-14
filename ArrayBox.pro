@@ -34,7 +34,8 @@ SOURCES += \
     swarm/swarmtools.cpp \
     swarm/swarminfo.cpp \
     swarm/webrequestwrapper.cpp \
-    swarm/swarmimpl.cpp
+    swarm/swarmimpl.cpp \
+    swarm/qtwebrequestimpl.cpp
 
 HEADERS += \
     abmainwindow.h \
@@ -48,7 +49,8 @@ HEADERS += \
     swarm/iswarm.h \
     swarm/swarmimpl.h \
     swarm/webrequestadapter.h \
-    swarm/iwebrequestadapter.h
+    swarm/iwebrequestadapter.h \
+    swarm/qtwebrequestimpl.h
 
 FORMS += \
         abmainwindow.ui \

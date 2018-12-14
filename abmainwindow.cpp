@@ -132,7 +132,6 @@ void ABMainWindow::createFindDelegate()
 
 bool ABMainWindow::init()
 {
-    swarm::SwarmInfoPtr info = swarm_->search("bs-d9526");
     createMenu();
     createToolbar();
     createFindDelegate();
@@ -216,4 +215,5 @@ void ABMainWindow::insterFromSwarm()
         return;
 
     QString searchStr = ui.lineEdit->text();
+    swarm::SwarmInfoPtr info = swarm_->search("bs-d9526");
 }

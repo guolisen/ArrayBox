@@ -3,16 +3,13 @@
 
 #include <memory>
 #include "iwebrequestadapter.h"
-#include <QNetworkAccessManager>
+#include "qtwebrequestimpl.h"
 
-class QNetworkAccessManager;
-class QNetworkReply;
 namespace swarm
 {
 
-class WebRequestAdapter : public QObject, public IWebRequestAdapter
+class WebRequestAdapter : public IWebRequestAdapter
 {
-    Q_OBJECT
 public:
     explicit WebRequestAdapter(ResultFunc resFunc);
     virtual ~WebRequestAdapter(){}
@@ -23,13 +20,9 @@ public:
 
     virtual bool startRequest(std::string url) override;
 
-private slots:
-    void finished();
 
 private:
-    QNetworkAccessManager networkAccessMgr_;
-    QNetworkReply* reply_;
-    ResultFunc resFunc_;
+    QtWebRequestImpl impl_;
 };
 }
 
