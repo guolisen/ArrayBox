@@ -22,7 +22,7 @@ public:
 
 
 private:
-    QtWebRequestImpl impl_;
+    QtWebRequestImpl* impl_;
 };
 }
 
