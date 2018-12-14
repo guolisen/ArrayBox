@@ -33,9 +33,9 @@ SOURCES += \
     abmainwindow.cpp \
     swarm/swarmtools.cpp \
     swarm/swarminfo.cpp \
-    swarm/webrequestwrapper.cpp \
     swarm/swarmimpl.cpp \
-    swarm/qtwebrequestimpl.cpp
+    swarm/qtwebrequestimpl.cpp \
+    swarm/webrequestadapter.cpp
 
 HEADERS += \
     abmainwindow.h \
