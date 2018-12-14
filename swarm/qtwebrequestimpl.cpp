@@ -55,6 +55,11 @@ void QtWebRequestImpl::finished()
 
         return;
     }
+
+    QByteArray array = reply_->readAll();
+    std::string str = array.toStdString();
+
+    return;
 }
 
 }

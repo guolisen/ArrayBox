@@ -206,7 +206,7 @@ void ABMainWindow::about()
 
 void ABMainWindow::insterFromSwarm()
 {
-    QDialog swarmDialog;
+    QDialog swarmDialog(this);
     Ui::Dialog ui;
     ui.setupUi(&swarmDialog);
     swarmDialog.adjustSize();
