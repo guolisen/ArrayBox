@@ -82,6 +82,11 @@ void ABMainWindow::tableViewInit()
     }
 
     //ui->tableView->setCurrentIndex(databaseModel_->getDatabaseModel()->index(0, 0));
+    connect(ui->tableView, &QAbstractItemView::doubleClicked,
+            this, &ABMainWindow::copyToCilpboard);
+//QAbstractItemView::doubleClicked
+    //ABMainWindow::copyToCilpboard
+
 }
 
 QSqlError ABMainWindow::databaseInit()
@@ -123,6 +128,47 @@ void ABMainWindow::createDataMap()
             this,
             &ABMainWindow::currentRowChangedProcess
             );
+
+    connect(ui->nameLineEdit, &QLineEdit::selectionChanged, this, [this]
+    {
+        copyToClipboardTool(ui->nameLineEdit->text());
+    });
+    connect(ui->mgmtIPLineEdit, &QLineEdit::selectionChanged, this, [this]
+    {
+        copyToClipboardTool(ui->mgmtIPLineEdit->text());
+    });
+    connect(ui->versionLineEdit, &QLineEdit::selectionChanged, this, [this]
+    {
+        copyToClipboardTool(ui->versionLineEdit->text());
+    });
+    connect(ui->modelLineEdit, &QLineEdit::selectionChanged, this, [this]
+    {
+        copyToClipboardTool(ui->modelLineEdit->text());
+    });
+    connect(ui->labIPSPALineEdit, &QLineEdit::selectionChanged, this, [this]
+    {
+        copyToClipboardTool(ui->labIPSPALineEdit->text());
+    });
+    connect(ui->labIPSPBLineEdit, &QLineEdit::selectionChanged, this, [this]
+    {
+        copyToClipboardTool(ui->labIPSPBLineEdit->text());
+    });
+    connect(ui->terminalSPALineEdit, &QLineEdit::selectionChanged, this, [this]
+    {
+        copyToClipboardTool(ui->terminalSPALineEdit->text());
+    });
+    connect(ui->terminalSPBLineEdit, &QLineEdit::selectionChanged, this, [this]
+    {
+        copyToClipboardTool(ui->terminalSPBLineEdit->text());
+    });
+    connect(ui->serialLineEdit, &QLineEdit::selectionChanged, this, [this]
+    {
+        copyToClipboardTool(ui->serialLineEdit->text());
+    });
+    connect(ui->typeLineEdit, &QLineEdit::selectionChanged, this, [this]
+    {
+        copyToClipboardTool(ui->typeLineEdit->text());
+    });
 }
 
 void ABMainWindow::createFindDelegate()
@@ -218,10 +264,25 @@ void ABMainWindow::insterFromSwarm()
     QString searchStr = ui.lineEdit->text();
     bool res = swarm_->search("bs-d9526",
                                std::bind(&ABMainWindow::swarmResult, this,
-                                   std::placeholders::_1, std::placeholders::_2));
+                                         std::placeholders::_1, std::placeholders::_2));
 }
 
 void ABMainWindow::swarmResult(bool result, swarm::SwarmReplyPtr reply)
 {
     printf("VVVV: %s\n", reply->getRawMessage().c_str());
 }
+
+void ABMainWindow::copyToClipboardTool(const QString& ipStr)
+{
+    QClipboard *clipboard = QApplication::clipboard();   //获取系统剪贴板指针
+    clipboard->setText(ipStr);
+    QString infoStr = "Copy \"" + ipStr +  "\" to Clipboard";
+    statusBar()->showMessage(infoStr);
+}
+
+void ABMainWindow::copyToCilpboard(const QModelIndex &index)
+{
+    QString ipStr = index.data().toString();
+    copyToClipboardTool(ipStr);
+}
+

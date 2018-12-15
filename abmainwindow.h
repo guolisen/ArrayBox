@@ -30,6 +30,7 @@ public:
 private slots:
     void about();
     void insterFromSwarm();
+    void copyToCilpboard(const QModelIndex &index);
 private:
     void createMenu();
     void createToolbar();
@@ -38,12 +39,14 @@ private:
     void tableViewInit();
     QSqlError databaseInit();
     void showError(const QSqlError &err);
+    void copyToClipboardTool(const QString& ipStr);
 
     Ui::ABMainWindow *ui;
     SortFilterProxyModel* proxyModel_;
     std::shared_ptr<ArrayDatabaseModel> databaseModel_;
     QDataWidgetMapper* mapper_;
     swarm::SwarmPtr swarm_;
+
 };
 
 #endif // ABMAINWINDOW_H
