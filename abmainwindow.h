@@ -4,6 +4,7 @@
 #include <memory>
 #include <QMainWindow>
 #include "swarm/iswarm.h"
+#include "swarm/iswarmreply.h"
 
 namespace Ui {
 class ABMainWindow;
@@ -25,7 +26,7 @@ public:
     bool init();
     void findStringProcess(const QString& s);
     void currentRowChangedProcess(const QModelIndex &current, const QModelIndex &previous);
-
+    void swarmResult(bool result, swarm::SwarmReplyPtr reply);
 private slots:
     void about();
     void insterFromSwarm();

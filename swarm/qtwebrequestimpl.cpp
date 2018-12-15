@@ -3,6 +3,7 @@
 #include <QtNetwork>
 #include <QUrl>
 #include <QSslConfiguration>
+#include <QDebug>
 #include "qtwebrequestimpl.h"
 
 namespace swarm {
@@ -55,6 +56,15 @@ void QtWebRequestImpl::finished()
 
         return;
     }
+
+
+    QByteArray array = reply_->readAll();
+    std::string str = array.toStdString();
+    resFunc_(true, str);
+    QString qstr = array;
+    qDebug() << "!!!:" << qstr;
+    printf("!!!: %s\n", str.c_str());
+    return;
 }
 
 }

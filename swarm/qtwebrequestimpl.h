@@ -4,6 +4,7 @@
 #include <string>
 #include <QObject>
 #include <QNetworkAccessManager>
+#include "iswarmtools.h"
 #include "iwebrequestadapter.h"
 
 namespace swarm {

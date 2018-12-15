@@ -4,10 +4,10 @@
 #include <functional>
 #include <string>
 #include <memory>
+#include "swarm/iswarmtools.h"
 
 namespace swarm
 {
-typedef std::function<void(bool, const std::string&)> ResultFunc;
 
 class IWebRequestAdapter
 {

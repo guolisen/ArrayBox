@@ -2,7 +2,7 @@
 #define SWARMIMPL_H
 
 #include "iswarm.h"
-#include "iswarminfo.h"
+#include "iswarmreply.h"
 #include "iswarmtools.h"
 
 namespace swarm {
@@ -10,14 +10,17 @@ namespace swarm {
 class SwarmImpl : public ISwarm
 {
 public:
-    SwarmImpl(SwarmInfoFactoryPtr factory, SwarmToolsPtr swarmTools):
-        swarmInfoFactory_(factory), swarmTools_(swarmTools) {}
+    SwarmImpl(ISwarmReply::Factory factory, SwarmToolsPtr swarmTools):
+        swarmReplyFactory_(factory), swarmTools_(swarmTools), isWorking_(false) {}
     virtual ~SwarmImpl(){}
-    virtual SwarmInfoPtr search(const std::string& targetStr) override;
+    virtual bool search(const std::string& targetStr, ArrayInfoFunc func) override;
+    virtual void resultFunction(bool result, const std::string& retMsg);
 
 private:
-    SwarmInfoFactoryPtr swarmInfoFactory_;
+    ISwarmReply::Factory swarmReplyFactory_;
     SwarmToolsPtr swarmTools_;
+    ArrayInfoFunc infoFunc_;
+    bool isWorking_;
 };
 
 } // namespace swarm

@@ -1,4 +1,5 @@
 #include <memory>
+#include <functional>
 #include <QComboBox>
 #include "abmainwindow.h"
 #include "ui_abmainwindow.h"
@@ -206,7 +207,7 @@ void ABMainWindow::about()
 
 void ABMainWindow::insterFromSwarm()
 {
-    QDialog swarmDialog;
+    QDialog swarmDialog(this);
     Ui::Dialog ui;
     ui.setupUi(&swarmDialog);
     swarmDialog.adjustSize();
@@ -215,5 +216,12 @@ void ABMainWindow::insterFromSwarm()
         return;
 
     QString searchStr = ui.lineEdit->text();
-    swarm::SwarmInfoPtr info = swarm_->search("bs-d9526");
+    bool res = swarm_->search("bs-d9526",
+                               std::bind(&ABMainWindow::swarmResult, this,
+                                   std::placeholders::_1, std::placeholders::_2));
+}
+
+void ABMainWindow::swarmResult(bool result, swarm::SwarmReplyPtr reply)
+{
+    printf("VVVV: %s\n", reply->getRawMessage().c_str());
 }

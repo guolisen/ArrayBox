@@ -2,14 +2,16 @@
 #define ISWARM_H
 
 #include <memory>
-#include "iswarminfo.h"
+#include "iswarmreply.h"
 namespace swarm {
+
+typedef std::function<void(bool, SwarmReplyPtr)> ArrayInfoFunc;
 
 class ISwarm {
 public:
     virtual ~ISwarm(){}
 
-    virtual SwarmInfoPtr search(const std::string& targetStr) = 0;
+    virtual bool search(const std::string& targetStr, ArrayInfoFunc func) = 0;
 
 
     //virtual bool getField() = 0;

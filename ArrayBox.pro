@@ -32,25 +32,25 @@ SOURCES += \
     detailrelationaldelegate.cpp \
     abmainwindow.cpp \
     swarm/swarmtools.cpp \
-    swarm/swarminfo.cpp \
     swarm/swarmimpl.cpp \
     swarm/qtwebrequestimpl.cpp \
-    swarm/webrequestadapter.cpp
+    swarm/webrequestadapter.cpp \
+    swarm/swarmreply.cpp
 
 HEADERS += \
     abmainwindow.h \
     arraydatabasemodel.h \
     sortfilterproxymodel.h \
     detailrelationaldelegate.h \
-    swarm/iswarminfo.h \
-    swarm/swarminfo.h \
     swarm/swarmtools.h \
     swarm/iswarmtools.h \
     swarm/iswarm.h \
     swarm/swarmimpl.h \
     swarm/webrequestadapter.h \
     swarm/iwebrequestadapter.h \
-    swarm/qtwebrequestimpl.h
+    swarm/qtwebrequestimpl.h \
+    swarm/iswarmreply.h \
+    swarm/swarmreply.h
 
 FORMS += \
         abmainwindow.ui \

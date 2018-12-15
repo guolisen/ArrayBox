@@ -13,10 +13,11 @@ public:
         webAdapterFactory_(webAdapterFactory){}
     virtual ~SwarmTools(){}
 
-    virtual bool request() override;
+    virtual bool request(const std::string&, ResultFunc) override;
     virtual void resultFunction(bool, const std::string&);
 private:
     IWebRequestAdapter::Factory webAdapterFactory_;
+    ResultFunc resultFunc_;
 };
 }
 
