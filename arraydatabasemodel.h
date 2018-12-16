@@ -6,6 +6,8 @@
 #include <QtSql>
 #include <QSqlRelationalDelegate>
 
+typedef std::map<QString, QString> ColMap;
+
 class ArrayDatabaseModel
 {
 public:
@@ -17,6 +19,7 @@ public:
         return model_.get();
     }
 
+    QSqlError insertRow(const QString& table, const ColMap row);
 private:
     QSqlError initDatabase();
     std::shared_ptr<QSqlRelationalTableModel> model_;

@@ -4,8 +4,10 @@
 #include <QModelIndex>
 #include <QSqlRelationalTableModel>
 #include <QSqlRelationalDelegate>
+#include <QStyledItemDelegate>
+#include <QItemDelegate>
 
-class DetailRelationalDelegate : public QItemDelegate
+class DetailRelationalDelegate : public QItemDelegate//public QStyledItemDelegate
 {
     //Q_OBJECT
 public:

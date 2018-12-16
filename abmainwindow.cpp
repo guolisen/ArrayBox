@@ -30,7 +30,11 @@ ABMainWindow::~ABMainWindow()
 void ABMainWindow::tableViewInit()
 {
     ui->tableView->setModel(proxyModel_);
-    ui->tableView->setItemDelegate(new DetailRelationalDelegate(this, databaseModel_->getDatabaseModel()));
+    QSqlRelationalTableModel* model = databaseModel_->getDatabaseModel();
+
+    //ui->tableView->setItemDelegateForColumn(model->fieldIndex("iosip"),
+    //                               new DetailRelationalDelegate(this, model));
+    ui->tableView->setItemDelegate(new DetailRelationalDelegate(this, model));
 
     //ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -82,10 +86,12 @@ void ABMainWindow::tableViewInit()
     }
 
     //ui->tableView->setCurrentIndex(databaseModel_->getDatabaseModel()->index(0, 0));
-    connect(ui->tableView, &QAbstractItemView::doubleClicked,
-            this, &ABMainWindow::copyToCilpboard);
-//QAbstractItemView::doubleClicked
-    //ABMainWindow::copyToCilpboard
+    //connect(ui->tableView, &QAbstractItemView::doubleClicked,
+    //        this, &ABMainWindow::copyToCilpboard);
+
+    //QSqlRelationalTableModel* model = databaseModel_->getDatabaseModel();
+    //connect(this, &ABMainWindow::resizeRowsToContents,
+    //        ui->tableView, &QTableView::resizeRowsToContents);
 
 }
 
@@ -206,7 +212,7 @@ void ABMainWindow::findStringProcess(const QString& s)
 void ABMainWindow::currentRowChangedProcess(const QModelIndex &current, const QModelIndex &previous)
 {
     mapper_->setCurrentIndex(current.row());
-
+#if 0
     QSqlRelationalTableModel* model = databaseModel_->getDatabaseModel();
     QModelIndex ioipModel = model->index(current.row(),model->fieldIndex("ioips"));
 
@@ -214,6 +220,7 @@ void ABMainWindow::currentRowChangedProcess(const QModelIndex &current, const QM
     QStringList ioipList = srcStr.split(',', QString::SkipEmptyParts);
     ui->iOIPsComboBox->clear();
     ui->iOIPsComboBox->addItems(ioipList);
+#endif
 }
 
 void ABMainWindow::createMenu()
@@ -253,6 +260,11 @@ void ABMainWindow::about()
 
 void ABMainWindow::insterFromSwarm()
 {
+    ColMap newrow;
+    newrow.insert(std::make_pair("name", "TTTTTTest"));
+    newrow.insert(std::make_pair("spaip", "sdffft"));
+    databaseModel_->insertRow("arrays", newrow);
+
     QDialog swarmDialog(this);
     Ui::Dialog ui;
     ui.setupUi(&swarmDialog);
