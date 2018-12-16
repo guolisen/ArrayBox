@@ -32,8 +32,6 @@ void ABMainWindow::tableViewInit()
     ui->tableView->setModel(proxyModel_);
     QSqlRelationalTableModel* model = databaseModel_->getDatabaseModel();
 
-    //ui->tableView->setItemDelegateForColumn(model->fieldIndex("iosip"),
-    //                               new DetailRelationalDelegate(this, model));
     ui->tableView->setItemDelegate(new DetailRelationalDelegate(this, model));
 
     //ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -85,14 +83,9 @@ void ABMainWindow::tableViewInit()
         ui->tableView->setColumnWidth(i, ui->tableView->columnWidth(i) + 10);  //多一些空余控件，不然每列内容很挤
     }
 
-    //ui->tableView->setCurrentIndex(databaseModel_->getDatabaseModel()->index(0, 0));
-    //connect(ui->tableView, &QAbstractItemView::doubleClicked,
-    //        this, &ABMainWindow::copyToCilpboard);
-
-    //QSqlRelationalTableModel* model = databaseModel_->getDatabaseModel();
-    //connect(this, &ABMainWindow::resizeRowsToContents,
-    //        ui->tableView, &QTableView::resizeRowsToContents);
-
+    ui->tableView->setCurrentIndex(databaseModel_->getDatabaseModel()->index(1, 1));
+    connect(ui->tableView, &QAbstractItemView::doubleClicked,
+            this, &ABMainWindow::copyToCilpboard);
 }
 
 QSqlError ABMainWindow::databaseInit()
@@ -212,15 +205,6 @@ void ABMainWindow::findStringProcess(const QString& s)
 void ABMainWindow::currentRowChangedProcess(const QModelIndex &current, const QModelIndex &previous)
 {
     mapper_->setCurrentIndex(current.row());
-#if 0
-    QSqlRelationalTableModel* model = databaseModel_->getDatabaseModel();
-    QModelIndex ioipModel = model->index(current.row(),model->fieldIndex("ioips"));
-
-    QString srcStr = ioipModel.data().toString();
-    QStringList ioipList = srcStr.split(',', QString::SkipEmptyParts);
-    ui->iOIPsComboBox->clear();
-    ui->iOIPsComboBox->addItems(ioipList);
-#endif
 }
 
 void ABMainWindow::createMenu()

@@ -50,7 +50,8 @@ HEADERS += \
     swarm/iwebrequestadapter.h \
     swarm/qtwebrequestimpl.h \
     swarm/iswarmreply.h \
-    swarm/swarmreply.h
+    swarm/swarmreply.h \
+    ioipsmodel.h
 
 FORMS += \
         abmainwindow.ui \

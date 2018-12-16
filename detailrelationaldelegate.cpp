@@ -1,7 +1,9 @@
+#include <map>
 #include <QComboBox>
 #include <QApplication>
 #include "detailrelationaldelegate.h"
 
+static IoipsModelMap ioipsMap_;
 DetailRelationalDelegate::DetailRelationalDelegate(QObject *parent, QSqlRelationalTableModel *model):
     QItemDelegate(parent), model_(model)
 {
@@ -11,6 +13,13 @@ DetailRelationalDelegate::DetailRelationalDelegate(QObject *parent, QSqlRelation
 void DetailRelationalDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QItemDelegate::paint(painter, option, index);
+    //if (index.column() != model_->fieldIndex("ioips"))
+    //{
+    //    QItemDelegate::paint(painter, option, index);
+    //    return;
+    //}
+
+    //index.model();
 #if 0
     if (index.column() != model_->fieldIndex("ioips"))
     {
@@ -58,10 +67,30 @@ void DetailRelationalDelegate::setEditorData(QWidget *editor, const QModelIndex 
         return;
     }
 
+    QModelIndex nameIndex = index.model()->index(index.row(), 0);
+    QString nameStr = nameIndex.data().toString();
+    QStringList ioipsList;
+    ioipsList.clear();
+    auto iter = ioipsMap_.find(nameStr);
+    if (iter == ioipsMap_.end())
+    {
+        QString srcStr = index.data().toString();
+        ioipsList = srcStr.split(',', QString::SkipEmptyParts);
+        ioipsMap_.insert(std::make_pair(nameStr, ioipsList));
+    }
+    else
+    {
+        ioipsList = iter->second;
+    }
     QComboBox* cb = qobject_cast<QComboBox*>(editor);
-    QString srcStr = index.data().toString();
-    QStringList ioipList = srcStr.split(',', QString::SkipEmptyParts);
     cb->clear();
-    cb->addItems(ioipList);
+    cb->addItems(ioipsList);
+}
+
+void DetailRelationalDelegate::setModelData(QWidget *editor, QAbstractItemModel *model,
+                                            const QModelIndex &index) const
+{
+    QItemDelegate::setModelData(editor, model, index);
+    return;
 }
 
