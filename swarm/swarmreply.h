@@ -21,6 +21,10 @@ public:
         return rawRelpyMsg_;
     }
 
+    //virtual bool result();
+
+    virtual bool getMessagePairs();
+
 private:
     std::string rawRelpyMsg_;
 };

@@ -12,7 +12,7 @@ DetailRelationalDelegate::DetailRelationalDelegate(QObject *parent, QSqlRelation
 
 void DetailRelationalDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    QItemDelegate::paint(painter, option, index);
+    //QItemDelegate::paint(painter, option, index);
     //if (index.column() != model_->fieldIndex("ioips"))
     //{
     //    QItemDelegate::paint(painter, option, index);
@@ -20,7 +20,7 @@ void DetailRelationalDelegate::paint(QPainter *painter, const QStyleOptionViewIt
     //}
 
     //index.model();
-#if 0
+#if 1
     if (index.column() != model_->fieldIndex("ioips"))
     {
         QItemDelegate::paint(painter, option, index);
@@ -32,11 +32,12 @@ void DetailRelationalDelegate::paint(QPainter *painter, const QStyleOptionViewIt
     comboBoxOption.state = option.state;
     comboBoxOption.state |= QStyle::State_Enabled;
     comboBoxOption.editable = false;
+    comboBoxOption.currentText = "ddd";
 
-    QComboBox* comboBox = new QComboBox;
-    QString srcStr = index.data().toString();
-    QStringList ioipList = srcStr.split(',', QString::SkipEmptyParts);
-    comboBox->addItems(ioipList);
+    //QComboBox* comboBox = new QComboBox;
+    //QString srcStr = index.data().toString();
+    //QStringList ioipList = srcStr.split(',', QString::SkipEmptyParts);
+    //comboBox->addItems(ioipList);
 
     QApplication::style()->drawComplexControl(QStyle::CC_ComboBox, &comboBoxOption, painter);
 #endif
