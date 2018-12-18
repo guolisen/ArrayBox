@@ -5,25 +5,54 @@
 #include "ui_abmainwindow.h"
 
 static const QString dbPath("../ab/ArrayBox/Arrays.db");
-static const QLatin1String createArraysTableSql("CREATE TABLE arrays (id integer primary key, \
-        name	varchar, \
-        mgmtip	varchar, \
-        spaip	varchar, \
-        spbip	varchar, \
-        terminalspaip	varchar, \
-        terminalspbip	varchar, \
-        model	varchar, \
-        ioips	varchar, \
-        reservedby	varchar, \
-        serial	varchar, \
-        lablocation	varchar, \
-        type	varchar, \
-        url	varchar, \
-        state	varchar, \
-        statereason	varchar, \
-        pools	varchar, \
-        version	varchar \
-    );");
+static const QLatin1String createArraysTableSql("CREATE TABLE arrays ("
+                                                "id    varchar primary key,"
+                                                "name    varchar ,"
+                                                "type    varchar,"
+                                                "model    varchar,"
+                                                "spaip    varchar,"
+                                                "spbip    varchar,"
+                                                "csip    varchar ,"
+                                                "csipv6    varchar,"
+                                                "bmcaip    varchar,"
+                                                "bmcbip    varchar,"
+                                                "terminalip   varchar,"
+                                                "terminalaport    varchar,"
+                                                "terminalbport    varchar,"
+                                                "consoleip    varchar,"
+                                                "series    varchar ,"
+                                                "owner    varchar,"
+                                                "reserved_by    varchar,"
+                                                "diskcount    varchar,"
+                                                "username    varchar,"
+                                                "password    varchar,"
+                                                "rempowsupip    varchar,"
+                                                "rempowsupoutb     varchar,"
+                                                "hypervisor    varchar,"
+                                                "program    varchar,"
+                                                "location    varchar,"
+                                                "post    varchar,"
+                                                "memory_configuration   varchar,"
+                                                "productserialno    varchar ,"
+                                                "bounddiskcount    varchar,"
+                                                "crawledmodel    varchar,"
+                                                "totalcapacity    varchar,"
+                                                "responsiblemanager    varchar,"
+                                                "bios    varchar,"
+                                                "rempowsupouta     varchar,"
+                                                "racklocation    varchar,"
+                                                "pduname    varchar,"
+                                                "lastcrawltime    varchar ,"
+                                                "frequent_crawl    varchar,"
+                                                "cs1ip    varchar,"
+                                                "imagefile    varchar,"
+                                                "lastcrawlresult    varchar,"
+                                                "version    varchar,"
+                                                "blockfilestate    varchar,"
+                                                "image    varchar,"
+                                                "virtualmanagementserver   varchar,"
+                                                "lab   varchar"
+                                                ");");
 static const QLatin1String createIoIpSql("CREATE TABLE ioip (id integer primary key, \
                                                             name varchar, \
                                                             ip varchar\
@@ -90,10 +119,14 @@ QSqlError ArrayDatabaseModel::insertRow(const QString &table, const ColMap row)
     }
 
     QSqlQuery q;
-    if (!q.prepare(QLatin1String("insert into arrays(name, mgmtip, spaip, spbip, terminalspaip, terminalspbip, model,"
-                                  "ioips, reservedby, serial, lablocation, type, url, state, statereason, pools) "
-                                 "values(:name, :mgmtip, :spaip, :spbip, :terminalspaip, :terminalspbip, :model,"
-                                 ":ioips, :reservedby, :serial, :lablocation, :type, :url, :state, :statereason, :pools)")))
+    if (!q.prepare(QLatin1String("insert into arrays(id,name,type,model,spaip,spbip,csip,csipv6,bmcaip,bmcbip,terminalip,terminalaport ,terminalbport,consoleip,series,"
+                                 "owner,reserved_by,diskcount,username,password,rempowsupip,rempowsupoutb ,hypervisor,program,location,post,memory_configuration,"
+                                 "productserialno ,bounddiskcount,crawledmodel,totalcapacity,responsiblemanager,bios,rempowsupouta ,racklocation,pduname,"
+                                 "lastcrawltime ,frequent_crawl,cs1ip,imagefile,lastcrawlresult,version,blockfilestate,image,virtualmanagementserver,lab)"
+                                 "values(:id, :name, :type, :model, :spaip, :spbip, :csip, :csipv6, :bmcaip, :bmcbip, :terminalip, :terminalaport , :terminalbport, :consoleip, :series, :"
+                                 "owner, :reserved_by, :diskcount, :username, :password, :rempowsupip, :rempowsupoutb , :hypervisor, :program, :location, :post, :memory_configuration, :"
+                                 "productserialno , :bounddiskcount, :crawledmodel, :totalcapacity, :responsiblemanager, :bios, :rempowsupouta , :racklocation, :pduname, :"
+                                 "lastcrawltime , :frequent_crawl, :cs1ip, :imagefile, :lastcrawlresult, :version, :blockfilestate, :image, :virtualmanagementserver, :lab)")))
         return q.lastError();
 
     for (auto val: insertColMap)
@@ -153,8 +186,8 @@ QSqlError ArrayDatabaseModel::initDatabase()
 
     if (!q.exec(createArraysTableSql))
         return q.lastError();
-    if (!q.exec(createIoIpSql))
-        return q.lastError();
+    //if (!q.exec(createIoIpSql))
+    //    return q.lastError();
 
     return QSqlError();
 }

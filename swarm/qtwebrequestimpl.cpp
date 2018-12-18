@@ -62,8 +62,8 @@ void QtWebRequestImpl::finished()
     std::string str = array.toStdString();
     resFunc_(true, str);
     QString qstr = array;
-    qDebug() << "!!!:" << qstr;
-    printf("!!!: %s\n", str.c_str());
+    //qDebug() << "!!!:" << qstr;
+    //printf("!!!: %s\n", str.c_str());
     return;
 }
 

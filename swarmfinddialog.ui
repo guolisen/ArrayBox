@@ -51,6 +51,9 @@
       <height>21</height>
      </rect>
     </property>
+    <property name="text">
+     <string>bs-d9526</string>
+    </property>
    </widget>
    <widget class="QDialogButtonBox" name="buttonBox">
     <property name="geometry">

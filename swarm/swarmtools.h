@@ -18,6 +18,7 @@ public:
 private:
     IWebRequestAdapter::Factory webAdapterFactory_;
     ResultFunc resultFunc_;
+    WebRequestAdapterPtr web_;
 };
 }
 

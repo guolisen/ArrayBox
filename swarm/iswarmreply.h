@@ -1,6 +1,7 @@
 #ifndef ISWARMINFO_H
 #define ISWARMINFO_H
 #include <string>
+#include <map>
 #include <memory>
 
 namespace swarm
@@ -12,6 +13,7 @@ public:
 
     virtual ~ISwarmReply(){}
     virtual std::string getRawMessage() const = 0;
+    virtual bool getMessagePairs(std::map<std::string, std::string>& jsonMap) = 0;
 };
 
 typedef std::shared_ptr<ISwarmReply> SwarmReplyPtr;

@@ -8,10 +8,10 @@ namespace swarm {
 bool SwarmTools::request(const std::string& url, ResultFunc resultFunc)
 {
     resultFunc_ = resultFunc;
-    WebRequestAdapterPtr web = webAdapterFactory_(std::bind(&SwarmTools::resultFunction, this,
+    web_ = webAdapterFactory_(std::bind(&SwarmTools::resultFunction, this,
                                  std::placeholders::_1, std::placeholders::_2));
 
-    web->startRequest("https://swarm.usd.lab.emc.com/api/instances/storageSysDetailView/FCNCH0972DDD9D?per_page=100");
+    web_->startRequest(url);
     //web->startRequest("https://www.baidu.com");
 
     return true;

@@ -1,11 +1,11 @@
 #ifndef SWARMINFO_H
 #define SWARMINFO_H
+#include <map>
 #include <string>
 #include "iswarmreply.h"
 
 namespace swarm
 {
-
 class SwarmReply : public ISwarmReply
 {
 public:
@@ -23,7 +23,7 @@ public:
 
     //virtual bool result();
 
-    virtual bool getMessagePairs();
+    virtual bool getMessagePairs(std::map<std::string, std::string>& jsonMap);
 
 private:
     std::string rawRelpyMsg_;

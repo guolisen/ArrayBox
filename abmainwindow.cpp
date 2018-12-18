@@ -244,11 +244,6 @@ void ABMainWindow::about()
 
 void ABMainWindow::insterFromSwarm()
 {
-    ColMap newrow;
-    newrow.insert(std::make_pair("name", "TTTTTTest"));
-    newrow.insert(std::make_pair("spaip", "sdffft"));
-    databaseModel_->insertRow("arrays", newrow);
-
     QDialog swarmDialog(this);
     Ui::Dialog ui;
     ui.setupUi(&swarmDialog);
@@ -258,14 +253,26 @@ void ABMainWindow::insterFromSwarm()
         return;
 
     QString searchStr = ui.lineEdit->text();
-    bool res = swarm_->search("bs-d9526",
+    bool res = swarm_->search(searchStr.toStdString(),
                                std::bind(&ABMainWindow::swarmResult, this,
                                          std::placeholders::_1, std::placeholders::_2));
 }
 
 void ABMainWindow::swarmResult(bool result, swarm::SwarmReplyPtr reply)
 {
-    printf("VVVV: %s\n", reply->getRawMessage().c_str());
+    //printf("VVVV: %s\n", reply->getRawMessage().c_str());
+
+    std::map<std::string, std::string> msgPairs;
+    reply->getMessagePairs(msgPairs);
+
+    ColMap newrow;
+    for (auto entry: msgPairs)
+    {
+        QString key = QString::fromStdString(entry.first);
+        QString value = QString::fromStdString(entry.second);
+        newrow.insert(std::make_pair(key, value));
+    }
+    databaseModel_->insertRow("arrays", newrow);
 }
 
 void ABMainWindow::copyToClipboardTool(const QString& ipStr)
