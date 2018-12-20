@@ -13,7 +13,8 @@ class ISwarmTools
 public:
     virtual ~ISwarmTools(){}
 
-    virtual bool request(const std::string&, ResultFunc) = 0;
+    virtual bool request(const std::string& requestType, const std::string& requestFilter,
+                         const std::string& requestField, ResultFunc resultFunc) = 0;
 };
 
 typedef std::shared_ptr<ISwarmTools> SwarmToolsPtr;

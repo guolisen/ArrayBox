@@ -16,6 +16,7 @@ QtWebRequestImpl::QtWebRequestImpl(ResultFunc resFunc, QObject *parent) :
 
 bool QtWebRequestImpl::startRequest(std::string url)
 {
+    //QString urlEncode = QUrl::toPercentEncoding("url");
     const QString urlSpec = QString::fromStdString(url);
 
     const QUrl newUrl = QUrl::fromUserInput(urlSpec);
