@@ -10,8 +10,12 @@ namespace swarm {
 class SwarmImpl : public ISwarm
 {
 public:
-    SwarmImpl(ISwarmReply::Factory factory, SwarmToolsPtr swarmTools):
-        swarmReplyFactory_(factory), swarmTools_(swarmTools), isWorking_(false), step_(0) {}
+    SwarmImpl(ISwarmReply::Factory swarmReplyFactory, ISwarmTools::Factory swarmToolsFactory):
+        swarmReplyFactory_(swarmReplyFactory), swarmTools_(swarmToolsFactory(std::bind(&SwarmImpl::resultFunction, this,
+                                                           std::placeholders::_1, std::placeholders::_2))), isWorking_(false), step_(0)
+    {
+
+    }
     virtual ~SwarmImpl(){}
     virtual bool search(const std::string& targetStr, ArrayInfoFunc func) override;
     virtual void resultFunction(bool result, const std::string& retMsg);

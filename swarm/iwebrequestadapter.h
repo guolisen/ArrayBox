@@ -4,7 +4,7 @@
 #include <functional>
 #include <string>
 #include <memory>
-#include "swarm/iswarmtools.h"
+#include "iswarmtools.h"
 
 namespace swarm
 {

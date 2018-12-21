@@ -16,14 +16,16 @@ QtWebRequestImpl::QtWebRequestImpl(ResultFunc resFunc, QObject *parent) :
 
 bool QtWebRequestImpl::startRequest(std::string url)
 {
-    //QString urlEncode = QUrl::toPercentEncoding("url");
-    const QString urlSpec = QString::fromStdString(url);
+    qDebug() << "In Url:" << QString::fromStdString(url) << "\n";
 
-    const QUrl newUrl = QUrl::fromUserInput(urlSpec);
+    QUrl newUrl = QUrl::fromUserInput(QString::fromStdString(url));
     if (!newUrl.isValid()) {
         return false;
     }
 
+    //QByteArray encodedUrlArray = newUrl.toEncoded();
+    //qDebug() << "encodedUrlArray Url:" << encodedUrlArray << "\n";
+    //QUrl encodedUrl(encodedUrlArray);
     QNetworkRequest request;
     QSslConfiguration config;
 

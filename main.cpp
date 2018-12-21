@@ -10,10 +10,12 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    swarm::IWebRequestAdapter::Factory webFactory = std::bind(swarm::WebRequestAdapter::createWebRequest, std::placeholders::_1);
     swarm::SwarmPtr swarmVar = std::make_shared<swarm::SwarmImpl>(
                 std::bind(&swarm::SwarmReply::createSwarmReply, std::placeholders::_1),
-                std::make_shared<swarm::SwarmTools>(
-                    std::bind(swarm::WebRequestAdapter::createWebRequest, std::placeholders::_1)));
+                std::bind(&swarm::SwarmTools::createSwarmTools,
+                          std::placeholders::_1, webFactory));
+
     ABMainWindow w(nullptr, swarmVar);
     if(!w.init())
     {
