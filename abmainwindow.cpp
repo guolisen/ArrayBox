@@ -272,7 +272,7 @@ void ABMainWindow::swarmResult(bool result, swarm::SwarmReplyPtr reply)
         QString value = QString::fromStdString(entry.second);
         newrow.insert(std::make_pair(key, value));
     }
-    databaseModel_->insertRow("arrays", newrow);
+    //databaseModel_->insertRow("arrays", newrow);
 }
 
 void ABMainWindow::copyToClipboardTool(const QString& ipStr)

@@ -76,9 +76,10 @@ QSqlError ArrayDatabaseModel::init(QTableView* tableView)
     model_->setEditStrategy(QSqlTableModel::OnManualSubmit);
     model_->setTable("arrays");
 
-    //QSqlQuery viewQuery("select id,model from arrays");
-    //std::shared_ptr<QSqlQueryModel> queryModel = std::static_pointer_cast<QSqlQueryModel>(model_);
-    //queryModel->setQuery(viewQuery);
+    QSqlQuery viewQuery("select arrays.id, arrays.model, TestTable.A2 from arrays, TestTable where arrays.id = TestTable.id");
+    //QSqlQuery viewQuery("select * from arrays a left join TestTable b on a.id = b.id");
+    std::shared_ptr<QSqlQueryModel> queryModel = std::static_pointer_cast<QSqlQueryModel>(model_);
+    queryModel->setQuery(viewQuery);
 
     // Set the localized header captions:
     model_->setHeaderData(model_->fieldIndex("name"),
