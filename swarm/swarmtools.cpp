@@ -13,13 +13,6 @@ bool SwarmTools::request(const std::string& requestType, const std::string& requ
     return web_->startRequest(createRequestUrl(requestType, requestFilter, requestField));
 }
 
-
-void SwarmTools::resultFunction(bool result, const std::string& retMsg)
-{
-    printf("Test!!!: %s\n", retMsg.c_str());
-    //resultFunc_(result, retMsg);
-}
-
 std::string SwarmTools::createRequestUrl(const std::string &requestType,
                                          const std::string &requestFilter,
                                          const std::string &requestField)

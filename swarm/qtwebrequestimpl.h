@@ -22,7 +22,7 @@ public slots:
     void finished();
 
 private:
-    QNetworkAccessManager networkAccessMgr_;
+    QNetworkAccessManager* networkAccessMgr_;
     QNetworkReply* reply_;
     ResultFunc resFunc_;
 };

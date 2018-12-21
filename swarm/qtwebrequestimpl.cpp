@@ -9,7 +9,7 @@
 namespace swarm {
 
 QtWebRequestImpl::QtWebRequestImpl(ResultFunc resFunc, QObject *parent) :
-    QObject(parent), resFunc_(resFunc)
+    QObject(parent), networkAccessMgr_(new QNetworkAccessManager), resFunc_(resFunc)
 {
 
 }
@@ -42,8 +42,7 @@ bool QtWebRequestImpl::startRequest(std::string url)
     request.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("application/json"));
     request.setHeader(QNetworkRequest::CookieHeader,var);
 
-    QNetworkAccessManager* nam = new QNetworkAccessManager;
-    reply_ = nam->get(request);
+    reply_ = networkAccessMgr_->get(request);
     QMetaObject::Connection t = connect(reply_, &QNetworkReply::finished, this, &QtWebRequestImpl::finished);
 
     return true;
@@ -60,13 +59,14 @@ void QtWebRequestImpl::finished()
         return;
     }
 
-
     QByteArray array = reply_->readAll();
     std::string str = array.toStdString();
     resFunc_(true, str);
     QString qstr = array;
     //qDebug() << "!!!:" << qstr;
     //printf("!!!: %s\n", str.c_str());
+    reply_->deleteLater();
+    reply_ = nullptr;
     return;
 }
 
