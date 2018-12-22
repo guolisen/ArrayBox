@@ -158,6 +158,6 @@ Request: https://swarm.usd.lab.emc.com/api/types/pool/instances?per_page=99999
 
 
 
-
+https://swarm.usd.lab.emc.com/api/types/storageSystemIp/instances?fields=storagesystem%2Cipid%2Cinterfaceid%2Cioport&per_page=99999
 
 cpprest
